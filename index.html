@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SlotMaps Landing Page</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTZC440PFH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VTZC440PFH');
+    </script>
+    
     <style>
         /* Basic reset for margins and paddings */
         body, html {
@@ -171,7 +182,8 @@
 </div>
 
 <!-- Subscribe Button at the Bottom -->
-<a href="your-subscribe-link.html" class="subscribe-button">Subscribe Now for $50 a Month</a>
+<a href="your-subscribe-link.html" class="subscribe-button" onclick="gtag('event', 'subscribe_click', { 'event_category': 'button', 'event_label': 'Subscribe Now' });">Subscribe Now for $50 a Month</a>
+
 
 </body>
 </html>
