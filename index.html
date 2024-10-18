@@ -40,6 +40,19 @@
             height: auto;
             z-index: 1;
         }
+        /* Style for casinos.png */
+        .casinos {
+            max-width: 300px;  /* Default width for desktop */
+            height: auto;      /* Maintain aspect ratio */
+            z-index: 1;        /* Ensure proper stacking */
+        }
+
+        /* Style for apguides.png */
+        .apguides {
+            max-width: 300px;  /* Default width for desktop */
+            height: auto;      /* Maintain aspect ratio */
+            z-index: 1;
+        }
 
         /* Scroll down content */
         .content-section {
@@ -53,6 +66,8 @@
 
         .content-section img {
             max-width: 100%;
+            overflow: hidden;
+            flex-wrap: wrap;
             height: auto;
         }
 
