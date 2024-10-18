@@ -3,12 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SlotMaps - Map Every Slot Machine">
-    <title>SlotMaps - Every Slot Machine Mapped</title>
+    <title>SlotMaps Landing Page</title>
+    <style>
+        /* Basic reset for margins and paddings */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Fullscreen video background */
+        .video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Style for the first PNG image on top */
+        .top-image {
+            position: relative;
+            width: 200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            z-index: 1;
+        }
+
+        /* Scroll down content */
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            min-height: 100vh;
+        }
+
+        .content-section img {
+            max-width: 300px;
+        }
+
+        .content-section .text {
+            padding: 20px;
+            max-width: 500px;
+            font-size: 1.2em;
+        }
+
+        /* Image and text layout (phone on right, text on left) */
+        .image-right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        /* Subscribe button style */
+        .subscribe-button {
+            display: block;
+            width: 200px;
+            margin: 50px auto;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .subscribe-button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-    <h1>SlotMaps - Every Slot Machine, Every Advantage</h1>
-    <p>Your guide to finding every slot machine in the world and how to leverage them for Advantage Play.</p>
-    <button onclick="window.location.href='subscribe.html'">Subscribe Now</button>
+
+<!-- Top Section with Video Background and PNG Image -->
+<div class="video-container">
+    <video autoplay muted loop>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <img src="your-top-image.png" alt="Top Image" class="top-image">
+</div>
+
+<!-- Scroll Down Section with Phone Image on Right and Text on Left -->
+<div class="content-section image-right">
+    <img src="your-phone-image.png" alt="Phone Image">
+    <div class="text">
+        <h2>Discover SlotMaps</h2>
+        <p>With SlotMaps, you can find every slot machine and discover where the best Advantage Play opportunities are. Start winning big with our powerful mapping technology.</p>
+    </div>
+</div>
+
+<!-- Another Section with Image on Left and Text on Right -->
+<div class="content-section">
+    <img src="your-next-image.png" alt="Feature Image">
+    <div class="text">
+        <h2>Track Jackpots in Real-Time</h2>
+        <p>Never miss a jackpot! SlotMaps keeps you updated on progressive slots and the best opportunities to play in any casino.</p>
+    </div>
+</div>
+
+<!-- Subscribe Button at the Bottom -->
+<a href="your-subscribe-link.html" class="subscribe-button">Subscribe Now for $50 a Month</a>
+
 </body>
 </html>
