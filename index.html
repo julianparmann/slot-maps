@@ -43,13 +43,13 @@
 
         /* Scroll down content */
         .content-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            min-height: 100vh;
-            box-sizing: border-box; /* Ensure padding is included in the element’s width */
-        }
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    justify-content: flex-start; /* Align content to the left */
+    padding: 20px; /* Adjust padding to reduce spacing */
+    min-height: auto; /* Remove the full-screen height */
+    box-sizing: border-box;
+}
 
         .content-section img {
             max-width: 300px;
