@@ -34,12 +34,13 @@
         /* Style for the first PNG image on top */
         .top-image {
             position: absolute;
-    top: 20px;
-    right: 1px;
-    width: 400px; /* Default width for desktop */
-    height: auto;
-    z-index: 1;
-}
+            top: 20px;
+            right: 1px;
+            width: 400px; /* Default width for desktop */
+            height: auto;
+            z-index: 1;
+        }
+
         /* Scroll down content */
         .content-section {
             display: flex;
@@ -48,8 +49,7 @@
             padding: 50px;
             min-height: 100vh;
             box-sizing: border-box; /* Ensure padding is included in the element’s width */
-}
-
+        }
 
         .content-section img {
             max-width: 300px;
@@ -61,11 +61,14 @@
             font-size: 1.2em;
             box-sizing: border-box;
         }
+
+        /* Media query for mobile devices */
         @media (max-width: 768px) {
             .content-section .text {
                 font-size: 1em; /* Make text smaller on mobile */
                 padding: 10px;  /* Adjust padding for smaller screens */
-    }
+            }
+        }
 
         /* Image and text layout (phone on right, text on left) */
         .image-right {
@@ -91,6 +94,25 @@
         .subscribe-button:hover {
             background-color: #218838;
         }
+
+        /* Headline Section */
+        .headline {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f4f4f4; /* Light background to distinguish the section */
+        }
+
+        .headline h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #333; /* Dark color for headline text */
+        }
+
+        .headline p {
+            font-size: 1.2em;
+            color: #666; /* Slightly lighter color for subtitle text */
+        }
+
     </style>
 </head>
 <body>
@@ -103,11 +125,13 @@
     </video>
     <img src="highlights.png" alt="Top Image" class="top-image">
 </div>
+
 <!-- Headline Section -->
 <div class="headline">
     <h1>Stop Guessing, Start Winning</h1>
     <p>Every Machine. Just One Tap Away.</p>
 </div>
+
 <!-- Scroll Down Section with Phone Image on Right and Text on Left -->
 <div class="content-section image-right">
     <img src="casinos.png" alt="Phone Image">
