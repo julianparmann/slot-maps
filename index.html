@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="icon" href="favicon2.ico" type="image/x-icon">
+<head>
+    <link rel="icon" href="favicon2.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/tabletop@1.5.4/src/tabletop.min.js"></script>
-
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,13 +70,13 @@
 
         /* Scroll down content */
         .content-section {
-    display: flex;
-    align-items: flex-start; /* Align items at the top */
-    justify-content: flex-start; /* Align content to the left */
-    padding: 20px; /* Adjust padding to reduce spacing */
-    min-height: auto; /* Remove the full-screen height */
-    box-sizing: border-box;
-}
+            display: flex;
+            align-items: flex-start; /* Align items at the top */
+            justify-content: flex-start; /* Align content to the left */
+            padding: 20px; /* Adjust padding to reduce spacing */
+            min-height: auto; /* Remove the full-screen height */
+            box-sizing: border-box;
+        }
 
         .content-section img {
             max-width: 100%;
@@ -97,7 +97,7 @@
             .content-section .text {
                 font-size: 1em; /* Make text smaller on mobile */
                 padding: 10px;  /* Adjust padding for smaller screens */
-        }        
+            }        
             .content-section img {
                 max-width: 90%;
                 height:auto;
@@ -147,6 +147,48 @@
             color: white; /* Slightly lighter color for subtitle text */
         }
 
+        /* Style for dynamically loaded casino cards */
+        .casino-card {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .casino-image {
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .casino-name {
+            font-size: 1.5em;
+            color: white;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .rating-bar {
+            margin: 10px 0;
+        }
+
+        .rating-label {
+            width: 120px;
+            display: inline-block;
+        }
+
+        .bar {
+            display: inline-block;
+            height: 10px;
+            background-color: green;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -196,7 +238,7 @@ If you want to learn how they do it and start finding those hidden value plays: 
     </div>
 </div>
 
-<!-- Subscription Options Section -->
+    <!-- Subscription Options Section -->
 <div class="subscription-options">
     <h2>Choose Your Plan</h2>
     
@@ -210,7 +252,7 @@ If you want to learn how they do it and start finding those hidden value plays: 
     <!-- The Slot Hustler -->
     <div class="subscription-tier">
         <h3>The Slot Hustler - $49.99/Month</h3>
-        <p>Unlock 1 AP Credit every month (and full access to SlotMaps community driven slot location and casino value guide) Ideal for players who want to make steady gains and refine their strategy.</p>
+        <p>Unlock 1 AP Credit every month (and full access to SlotMaps community-driven slot location and casino value guide). Ideal for players who want to make steady gains and refine their strategy.</p>
         <a href="https://rkjpfhjj9sr.typeform.com/to/qo5ZBAvZ" class="pay-now-button" onclick="gtag('event', 'subscribe_click', { 'event_category': 'button', 'event_label': 'Slot Hustler' });">Subscribe</a>
     </div>
 
@@ -222,8 +264,8 @@ If you want to learn how they do it and start finding those hidden value plays: 
     </div>
 </div>
 
+<!-- Style for the subscription section -->
 <style>
-/* Style for the subscription section */
 .subscription-options {
     text-align: center;
     margin-top: 30px;
@@ -265,9 +307,10 @@ If you want to learn how they do it and start finding those hidden value plays: 
     background-color: #1a82d8;
 }
 </style>
+<!-- Casino Container where casino cards are dynamically loaded -->
+<div id="casino-container"></div>
 
-       <div id="casino-container"></div>
-    
+<!-- Script to load data from Google Sheets using Tabletop.js -->
 <script>
   window.onload = function() {
     var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPpsEQ68c-ZW68viirOrLFjgJFuJzOwSE1cohiBTH1J_WVhfsEGfGcnl8hn2ROfMd9RDZREJqPW0ET/pubhtml';
@@ -280,9 +323,8 @@ If you want to learn how they do it and start finding those hidden value plays: 
       });
     }
 
-    function showInfo(data, tabletop) {
+    function showInfo(data) {
       data.forEach(function(casino) {
-        // Append each casino card to a container element
         var casinoCard = `
           <div class="casino-card">
             <div class="casino-image" style="background-image: url('${casino.Image}');">
@@ -312,7 +354,7 @@ If you want to learn how they do it and start finding those hidden value plays: 
       });
     }
 
-    // Helper function to determine bar color
+    // Helper function to determine bar color based on value
     function getBarColor(value) {
       if (value >= 80) return 'green';
       if (value >= 50) return 'yellow';
@@ -322,12 +364,6 @@ If you want to learn how they do it and start finding those hidden value plays: 
     init();
   }
 </script>
- 
-
-
-    
-
-
 
 </body>
 </html>
