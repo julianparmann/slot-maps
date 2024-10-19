@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.4/tabletop.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 
     <link rel="icon" href="favicon2.ico" type="image/x-icon">
@@ -315,16 +315,20 @@ If you want to learn how they do it and start finding those hidden value plays: 
 <!-- Casino Container where casino cards are dynamically loaded -->
 <div id="casino-container"></div>
 
-<!-- Script to load data from Google Sheets using Tabletop.js -->
+<!-- Script to load data from Google Sheets using Papa Parse -->
 <script>
   window.onload = function() {
-    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPpsEQ68c-ZW68viirOrLFjgJFuJzOwSE1cohiBTH1J_WVhfsEGfGcnl8hn2ROfMd9RDZREJqPW0ET/pubhtml';
+    // Replace with your Google Sheets CSV URL
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPpsEQ68c-ZW68viirOrLFjgJFuJzOwSE1cohiBTH1J_WVhfsEGfGcnl8hn2ROfMd9RDZREJqPW0ET/pub?output=csv';
 
     function init() {
-      Tabletop.init({
-        key: publicSpreadsheetUrl,
-        callback: showInfo,
-        simpleSheet: true
+      Papa.parse(publicSpreadsheetUrl, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          var data = results.data; // This contains the parsed Google Sheets data
+          showInfo(data);
+        }
       });
     }
 
@@ -369,6 +373,7 @@ If you want to learn how they do it and start finding those hidden value plays: 
     init();
   }
 </script>
+
 
 </body>
 </html>
