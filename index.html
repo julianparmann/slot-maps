@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><link rel="icon" href="favicon2.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/tabletop@1.5.4/src/tabletop.min.js"></script>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -263,6 +265,62 @@ If you want to learn how they do it and start finding those hidden value plays: 
     background-color: #1a82d8;
 }
 </style>
+<script>
+  window.onload = function() {
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPpsEQ68c-ZW68viirOrLFjgJFuJzOwSE1cohiBTH1J_WVhfsEGfGcnl8hn2ROfMd9RDZREJqPW0ET/pubhtml';
+
+    function init() {
+      Tabletop.init({
+        key: publicSpreadsheetUrl,
+        callback: showInfo,
+        simpleSheet: true
+      });
+    }
+
+    function showInfo(data, tabletop) {
+      data.forEach(function(casino) {
+        // Append each casino card to a container element
+        var casinoCard = `
+          <div class="casino-card">
+            <div class="casino-image" style="background-image: url('${casino.Image}');">
+              <div class="casino-name">${casino.Casino}</div>
+            </div>
+            <div class="casino-ratings">
+              <div class="rating-bar">
+                <span class="rating-label">Overall</span>
+                <div class="bar" style="width: ${casino.Overall}%; background-color: ${getBarColor(casino.Overall)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Tourist Presence</span>
+                <div class="bar" style="width: ${casino.Tourist_Presence}%; background-color: ${getBarColor(casino.Tourist_Presence)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Parking</span>
+                <div class="bar" style="width: ${casino.Parking}%; background-color: ${getBarColor(casino.Parking)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Competition</span>
+                <div class="bar" style="width: ${casino.Competition}%; background-color: ${getBarColor(casino.Competition)};"></div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.getElementById('casino-container').innerHTML += casinoCard;
+      });
+    }
+
+    // Helper function to determine bar color
+    function getBarColor(value) {
+      if (value >= 80) return 'green';
+      if (value >= 50) return 'yellow';
+      return 'red';
+    }
+
+    init();
+  }
+</script>
+
+    
 
 
 
