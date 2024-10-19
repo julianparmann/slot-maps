@@ -222,6 +222,8 @@
             transition: visibility 0s, opacity 0.3s ease-in-out;
             z-index: 3; /* Ensure bars appear on top of the image */
             background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
+            border-radius: 15px; /* Rounded corners for the entire container */
+            overflow: hidden; /* Ensures the contents are within the rounded area */
         }
         
         /* Show the bars when hovering over the casino tile */
@@ -233,14 +235,14 @@
         /* Style for rating bars */
         .rating-bar {
             background-color: #f1f1f1;
-            border-radius: 5px;
+            border-radius: 15px;
             overflow: hidden;
             margin-top: 3px; /* Reduced margin */
         }
         
         .bar {
-            height: 8px; /* Reduced height */
-            border-radius: 5px;
+            height: 10px; /* Reduced height */
+            border-radius: 15px;
             background-color: #ccc;
         }
 
