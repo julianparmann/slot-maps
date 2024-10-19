@@ -150,49 +150,51 @@
             color: white; /* Slightly lighter color for subtitle text */
         }
 
-        /* Style for dynamically loaded casino cards */
+        /* Style for the casino cards */
         .casino-card {
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-            padding: 10px;
-            border-radius: 10px;
-            overflow: hidden;
+            max-width: 300px; /* Adjust this value */
+            height: auto;
+            margin: 20px;
+            position: relative; /* Ensure the ratings stay in the right place */
+            transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
         }
-
-
+        
+        /* Style for the casino image */
         .casino-image {
             background-size: cover;
             background-position: center;
-            height: 200px;
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
             border-radius: 10px;
         }
-
-        .casino-name {
-            font-size: 1.5em;
-            color: white;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
+        
+        /* Hide the bars initially */
+        .casino-ratings {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
         }
-
+        
+        /* Show the bars when hovering over the casino tile */
+        .casino-card:hover .casino-ratings {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Style for rating bars */
         .rating-bar {
-            margin: 10px 0;
-        }
-
-        .rating-label {
-            width: 120px;
-            display: inline-block;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 5px;
         }
         
         .bar {
-            display: inline-block;
             height: 10px;
-            background-color: green;
             border-radius: 5px;
+            background-color: #ccc;
         }
+
 
     </style>
 </head>
