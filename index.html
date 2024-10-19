@@ -150,13 +150,29 @@
             color: white; /* Slightly lighter color for subtitle text */
         }
 
+        /* Flexbox container for the casino cards */
+        #casino-container {
+            display: flex;
+            flex-wrap: wrap; /* Ensures tiles wrap to the next line when needed */
+            justify-content: space-around; /* Distributes space between the cards */
+            padding: 20px;
+        }
+        
         /* Style for the casino cards */
         .casino-card {
-            max-width: 300px; /* Adjust this value */
+            width: 300px; /* Fixed width for each card */
             height: auto;
             margin: 20px;
-            position: relative; /* Ensure the ratings stay in the right place */
+            position: relative; /* Ensures the ratings stay in the right place */
+            background-color: #fff; /* Adds background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+            border-radius: 10px; /* Rounded corners */
             transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+        }
+        
+        /* Add hover effect to slightly scale up the card */
+        .casino-card:hover {
+            transform: scale(1.05);
         }
         
         /* Style for the casino image */
@@ -165,11 +181,13 @@
             background-position: center;
             width: 100%;
             height: 200px; /* Adjust the height as needed */
-            border-radius: 10px;
+            border-radius: 10px 10px 0 0; /* Rounded corners at the top */
         }
         
         /* Hide the bars initially */
         .casino-ratings {
+            padding: 10px;
+            text-align: center;
             visibility: hidden;
             opacity: 0;
             transition: visibility 0s, opacity 0.3s ease-in-out;
@@ -194,6 +212,7 @@
             border-radius: 5px;
             background-color: #ccc;
         }
+
 
 
     </style>
