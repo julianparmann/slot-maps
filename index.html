@@ -300,6 +300,55 @@
             font-weight: bold;
             color: #333;
         }
+        /* Popup Overlay */
+        #popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+          z-index: 1000; /* Ensure it appears above everything */
+          display: none; /* Hidden by default */
+        }
+        
+        /* Popup Content */
+        #popup-content {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); /* Center the popup */
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          width: 300px; /* Adjust width for layout */
+          z-index: 1001; /* Ensure it appears above the overlay */
+          text-align: center;
+        }
+        
+        /* Close Button */
+        #close-popup {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          font-size: 1.5em;
+        }
+        
+        /* Button inside popup */
+        .popup-button {
+          display: inline-block;
+          margin: 10px;
+          padding: 10px 20px;
+          background-color: #007BFF;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        
+        .popup-button:hover {
+          background-color: #0056b3;
+        }
 
 
 
@@ -476,8 +525,18 @@ If you want to learn how the pros do it and start finding those hidden value pla
 <!-- Casino Container where casino cards are dynamically loaded -->
 <div id="casino-container"></div>
 
+<!-- Popup Overlay -->
+<div id="popup-overlay">
+  <div id="popup-content">
+    <span id="close-popup">&times;</span>
+    <p>Want this map? Join our community now and get access to 22 Las Vegas Casino Maps and <span id="slot-count"></span> slot machines that are beatable.</p>
+    <a href="https://form.jotform.com/242934403310042" class="popup-button">Join Now</a>
+    <p>Or buy an individual guide for one of <span id="slot-count"></span> slot machines for $29.99 right now and have it sent to your email.</p>
+    <a href="/apguides.html" class="popup-button">Buy Now</a>
+  </div>
+</div>
 
-<!-- Script to load data from Google Sheets using Papa Parse -->
+<!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
 <script>
   window.onload = function() {
     // Replace with your Google Sheets CSV URL
@@ -497,7 +556,7 @@ If you want to learn how the pros do it and start finding those hidden value pla
     function showInfo(data) {
       data.forEach(function(casino) {
         var casinoCard = `
-          <div class="casino-card">
+          <div class="casino-card" onclick="showPopup()">
             <div class="casino-image" style="background-image: url('${casino.Image}');">
               <div class="casino-name">${casino.Casino}</div>
             </div>
@@ -523,18 +582,46 @@ If you want to learn how the pros do it and start finding those hidden value pla
         `;
         document.getElementById('casino-container').innerHTML += casinoCard;
       });
+
+      // Attach popup event listeners after cards are rendered
+      document.querySelectorAll('.casino-card').forEach(card => {
+        card.addEventListener('click', showPopup);
+      });
     }
 
     // Helper function to determine bar color based on value
     function getBarColor(value) {
       if (value >= 80) return 'green';
-      if (value >= 50) return '#f4a742';
+      if (value >= 50) return '#f4a742'; // Orange-yellow color
       return 'red';
     }
 
     init();
   }
+
+  // Function to show the popup
+  function showPopup() {
+    document.getElementById('popup-overlay').style.display = 'block';
+    document.getElementById('popup-content').style.display = 'block';
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+    document.getElementById('popup-content').style.display = 'none';
+  }
+
+  // Event listener for the close button
+  document.getElementById('close-popup').addEventListener('click', hidePopup);
+
+  // Event listener for the overlay click (close on click outside content)
+  document.getElementById('popup-overlay').addEventListener('click', function(event) {
+    if (event.target === this) {
+      hidePopup();
+    }
+  });
 </script>
+
 
 
 </body>
