@@ -350,6 +350,35 @@
           background-color: #0056b3;
         }
 
+        /* Style for the floating text box */
+        .floating-text-box {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -20%);
+          background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+          color: white;
+          padding: 20px;
+          border-radius: 10px;
+          width: 80%; /* Adjust width based on preference */
+          max-width: 800px;
+          z-index: 2; /* Ensure it appears above the video and image */
+          text-align: center;
+          font-size: 1.2em;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-text-box h2 {
+          margin-top: 0;
+          font-size: 1.5em;
+        }
+        
+        @media (max-width: 768px) {
+          .floating-text-box {
+            width: 90%;
+            font-size: 1em;
+          }
+        }
 
 
 
@@ -364,6 +393,20 @@
         Your browser does not support the video tag.
     </video>
     <img src="title1.png" alt="Top Image" class="top-image">
+
+    <!-- Floating Text Box -->
+    <div class="floating-text-box">
+        <h2>Ever thought you could actually make a living playing slots?</h2>
+        <p>
+            Yeah, it’s real. Some slots hit a sweet spot called a +EV state, where the odds flip in your favor. 
+            Advantage Players (APs) use math and data to catch these moments, but it’s not just about hitting spin—it’s about knowing when the bonuses and items start piling up. 
+            That’s when the return shifts in your favor.<br><br>
+
+            And here’s where SlotMaps comes in. We show you exactly which casinos have these machines, and when those bonuses start to make a real difference. 
+            So, while others are throwing money away, you’re stacking wins. Scroll down to learn more. 👇
+        </p>
+    </div>
+</div>
 </div>
 
 <!-- Headline Section -->
