@@ -261,6 +261,45 @@
             border-radius: 15px;
             background-color: #ccc;
         }
+/* Reviews Section */
+        .reviews-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #f9f9f9; /* Light background color to distinguish the section */
+            border-top: 1px solid #ddd; /* Separate it visually from the pricing options */
+        }
+        
+        .reviews-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .review {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stars {
+            color: #ffc107; /* Gold star color */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .reviewer {
+            font-weight: bold;
+            color: #333;
+        }
 
 
 
@@ -400,8 +439,41 @@ If you want to learn how the pros do it and start finding those hidden value pla
     <div class="casino-ratings-title">
     <h2>Vegas Casino Ratings</h2>
 </div>
+    <!-- Reviews Section -->
+<div class="reviews-section">
+    <h2>What Our Users Are Saying</h2>
+
+    <!-- Review 1 -->
+    <div class="review">
+        <div class="stars">
+            ★★★★★
+        </div>
+        <p class="testimonial">"SlotMaps is a game-changer! I never realized how much of an advantage knowing which slots to play could be. The community insights are spot on!"</p>
+        <p class="reviewer">- Jessica M.</p>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="review">
+        <div class="stars">
+            ★★★★☆
+        </div>
+        <p class="testimonial">"I’ve saved so much time using SlotMaps. It’s like having a secret weapon every time I walk into a casino. Highly recommend!"</p>
+        <p class="reviewer">- David R.</p>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="review">
+        <div class="stars">
+            ★★★★★
+        </div>
+        <p class="testimonial">"If you’re serious about slots, you need SlotMaps. I’ve already had more success in a few visits than I had in months before."</p>
+        <p class="reviewer">- Amanda P.</p>
+    </div>
+</div>
+
 <!-- Casino Container where casino cards are dynamically loaded -->
 <div id="casino-container"></div>
+
 
 <!-- Script to load data from Google Sheets using Papa Parse -->
 <script>
