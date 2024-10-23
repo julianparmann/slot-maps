@@ -71,11 +71,13 @@
         /* Style for the first PNG image on top */
         .top-image {
             position: absolute;
-            top: 20px;
-            right: 1px;
-            width: 800; /* Default width for desktop */
-            height: auto;
-            z-index: 1;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%); /* Center vertically */
+          max-width: 100%;
+          height: auto;
+          max-height: 100vh; /* Ensures it doesn't go off-screen vertically */
+          z-index: 1;
         }
         /* Style for casinos.png */
         .casinos {
@@ -120,7 +122,11 @@
             .content-section .text {
                 font-size: 1em; /* Make text smaller on mobile */
                 padding: 10px;  /* Adjust padding for smaller screens */
-            }        
+            } 
+            .top-image {
+            max-width: 80%; /* Adjust width for smaller screens */
+            right: 2px; /* Ensure some padding on the right */
+          }
             .content-section img {
                 max-width: 90%;
                 height:auto;
