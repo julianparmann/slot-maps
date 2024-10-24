@@ -116,9 +116,20 @@
             font-size: 1.2em;
             box-sizing: border-box;
         }
+                html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents scrolling issues */
+        }
 
         /* Media query for mobile devices */
         @media (max-width: 768px) {
+            body {
+            height: 100%;
+            overflow: hidden; /* Ensure no extra space is created */
+            }
+
             .content-section .text {
                 font-size: 1em; /* Make text smaller on mobile */
                 padding: 10px;  /* Adjust padding for smaller screens */
