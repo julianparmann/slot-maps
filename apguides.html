@@ -1,0 +1,88 @@
+<!-- Container for AP Slot Machine tiles -->
+<div id="ap-machine-container" class="ap-grid"></div>
+
+<!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
+<script>
+  window.onload = function() {
+    // Replace with your Google Sheets CSV URL for AP machines
+    var publicSpreadsheetUrl = 'YOUR_GOOGLE_SHEET_CSV_URL';
+
+    function init() {
+      Papa.parse(publicSpreadsheetUrl, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          var data = results.data; // This contains the parsed Google Sheets data
+          showMachines(data);
+        }
+      });
+    }
+
+    function showMachines(data) {
+      data.forEach(function(machine) {
+        var machineCard = `
+          <div class="ap-tile" onclick="showPopup()">
+            <div class="machine-image" style="background-image: url('${machine.Photo}');">
+              <div class="machine-name">${machine['Machine Name']}</div>
+            </div>
+            <div class="machine-ratings">
+              <div class="rating-bar">
+                <span class="rating-label">Overall Value</span>
+                <div class="bar" style="width: ${machine['Overall Value']}%; background-color: ${getBarColor(machine['Overall Value'])};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Commonness</span>
+                <div class="bar" style="width: ${machine.Commonness}%; background-color: ${getBarColor(machine.Commonness)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Variance</span>
+                <div class="bar" style="width: ${machine.Variance}%; background-color: ${getBarColor(machine.Variance)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">High Stakes Availability</span>
+                <div class="bar" style="width: ${machine['High Stakes Availability']}%; background-color: ${getBarColor(machine['High Stakes Availability'])};"></div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.getElementById('ap-machine-container').innerHTML += machineCard;
+      });
+
+      // Attach popup event listeners after cards are rendered
+      document.querySelectorAll('.ap-tile').forEach(card => {
+        card.addEventListener('click', showPopup);
+      });
+    }
+
+    // Helper function to determine bar color based on value
+    function getBarColor(value) {
+      if (value >= 80) return 'green';
+      if (value >= 50) return '#f4a742'; // Orange-yellow color
+      return 'red';
+    }
+
+    init();
+  }
+
+  // Function to show the popup (optional, if needed)
+  function showPopup() {
+    document.getElementById('popup-overlay').style.display = 'block';
+    document.getElementById('popup-content').style.display = 'block';
+  }
+
+  // Function to hide the popup (optional, if needed)
+  function hidePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+    document.getElementById('popup-content').style.display = 'none';
+  }
+
+  // Event listener for the close button (optional, if you have a popup)
+  document.getElementById('close-popup').addEventListener('click', hidePopup);
+
+  // Event listener for the overlay click (close on click outside content) (optional)
+  document.getElementById('popup-overlay').addEventListener('click', function(event) {
+    if (event.target === this) {
+      hidePopup();
+    }
+  });
+</script>
