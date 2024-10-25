@@ -46,7 +46,32 @@
             line-height: 1.6;
             color: #555;
         }
-
+        /* Header styling */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #1a1a1a; /* Background color for header */
+        }
+        
+        /* Logo styling */
+        .logo-container {
+            flex: 0 0 auto;
+            margin-right: 20px;
+        }
+        
+        .logo {
+            max-width: 80px; /* Adjust size as needed */
+            height: auto;
+        }
+        
+        /* Welcome message styling */
+        .welcome-message {
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: bold;
+            margin: 0;
+        }
         /* Fullscreen video background */
         .video-container {
             position: relative;
@@ -440,6 +465,19 @@
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/logo.png" alt="SlotMaps Logo" class="logo">
+        </div>
+        <h1 class="welcome-message">Welcome to SlotMaps</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="video-container">
+        <!-- Your existing content, like the video and other sections -->
+    </div>
+
+    <!-- Rest of your content here -->
 
 <!-- Top Section with Video Background and PNG Image -->
 <div class="video-container">
