@@ -75,12 +75,20 @@
         margin-right: 10px; /* Adds some space between logo and text */
     }
     
-        .welcome-message .subtext {
-        font-size: 0.7em; /* Smaller size for subtext */
-        display: block;
-        line-height: 1.2; /* Adjust for spacing between lines */
-        margin-top: 5px; /* Add a bit of space between SlotMaps and subtext */
+       .welcome-message {
+        display: flex;
+        align-items: center; /* Aligns the main title and subtext vertically */
+        gap: 15px; /* Adds space between the main title and subtext */
     }
+    
+    .welcome-message .subtext {
+        display: flex;
+        flex-direction: column; /* Stacks the subtext vertically */
+        font-size: 0.7em; /* Adjusts the size of the subtext */
+        line-height: 1.2; /* Space between lines */
+        text-align: left;
+    }
+
 
 
         .machine-image {
@@ -179,10 +187,11 @@
     <img src="/logo.png" alt="SlotMaps Logo" class="logo">
     <h1 class="welcome-message">
     SlotMaps
-    <span class="subtext">
+    <div class="subtext">
         <i>Stop Gambling.<br>Start Winning.</i>
-    </span>
+    </div>
 </h1>
+
 
     <div class="nav-links">
         <a href="index.html">🎰Home</a>
