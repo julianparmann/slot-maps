@@ -86,11 +86,13 @@
         }
         
         /* Welcome message styling */
-        .welcome-message {
-            font-size: 1.5em; /* Adjust font size as needed */
-            font-weight: bold;
-            margin-left: 10px;
-        }
+        .welcome-message .subtext {
+        font-size: 0.7em; /* Smaller size for subtext */
+        display: block;
+        line-height: 1.2; /* Adjust for spacing between lines */
+        margin-top: 5px; /* Add a bit of space between SlotMaps and subtext */
+    }
+
         /* Fullscreen video background */
         .video-container {
             position: relative;
@@ -535,7 +537,13 @@
        <!-- Header Section -->
        <header class="header">
            <img src="/logo.png" alt="SlotMaps Logo" class="logo">
-              <h1 class="welcome-message">SlotMaps</h1> <p> <i>Stop Gambling.<br> Start Winning.</i></p>
+              <h1 class="welcome-message">
+    SlotMaps
+    <span class="subtext">
+        <i>Stop Gambling.<br>Start Winning.</i>
+    </span>
+</h1>
+
            <div class="nav-links">
         <a href="apguides.html">📖AP Guides</a>
     </div>
