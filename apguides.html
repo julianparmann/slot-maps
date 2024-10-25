@@ -12,6 +12,23 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
+        .nav-links {
+            margin-left: auto; /* Pushes links to the right side */
+            display: flex;
+            gap: 20px; /* Space between links */
+        }
+        
+        .nav-links a {
+            color: white; /* White color for text */
+            text-decoration: none; /* Remove underline */
+            font-size: 1em; /* Adjust font size */
+            padding: 10px;
+            transition: color 0.3s ease; /* Smooth color transition on hover */
+        }
+        
+        .nav-links a:hover {
+            color: #f4a742; /* Highlight color on hover */
+        }
 
         /* Container for AP tiles */
         #ap-machine-container {
@@ -155,7 +172,10 @@
 <body>
 <header class="header">
     <img src="/logo.png" alt="SlotMaps Logo" class="logo">
-    <h1 class="welcome-message">SlotMaps AP Guide Marketplace</h1>
+    <h1 class="welcome-message">SlotMaps - Stop Gambling. Start Winning.</h1>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+    </div>
 </header>
     <!-- Container for AP Slot Machine tiles -->
     <div id="ap-machine-container" class="ap-grid"></div>
