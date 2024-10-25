@@ -375,6 +375,54 @@
             font-weight: bold;
             color: #333;
         }
+        .subscription-container {
+            display: flex;
+            flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+            justify-content: space-around; /* Creates space between the two options */
+            padding: 20px 0;
+        }
+           
+        .subscription-options {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .subscription-tier {
+            flex: 1 1 calc(50% - 20px);
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subscription-tier h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subscription-tier p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .pay-now-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e98f1;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .pay-now-button:hover {
+            background-color: #1a82d8;
+        }
         /* Popup Overlay */
         #popup-overlay {
           position: fixed;
@@ -478,12 +526,6 @@
        <img src="titlenew.png" alt="Top Image" class="top-image">
     </div>
 
-<!-- Headline Section -->
-<div class="headline">
-    <h1>Not All Slots Are Created Equal</h1>
-    <p>Stop Guessing. Start Winning.</p>
-</div>
-
 <!-- Scroll Down Section with Phone Image on Right and Text on Left -->
 <div class="content-section image-right">
     <img src="casinos1.png" alt="Phone Image">
@@ -520,57 +562,7 @@
 
 
 
-<!-- Style for the subscription section -->
-<style>
-    .subscription-container {
-    display: flex;
-    flex-wrap: wrap; /* Wraps to the next line on smaller screens */
-    justify-content: space-around; /* Creates space between the two options */
-    padding: 20px 0;
-}
-   
-.subscription-options {
-    text-align: center;
-    margin-top: 30px;
-}
 
-.subscription-tier {
-    flex: 1 1 calc(50% - 20px);
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.subscription-tier h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.subscription-tier p {
-    font-size: 1em;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.pay-now-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1e98f1;
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.pay-now-button:hover {
-    background-color: #1a82d8;
-}
-</style>
         <!-- Subscription Options Section -->
 <div class="subscription-options">
     <h2>Choose Your Product</h2>
@@ -645,9 +637,9 @@
 <div id="popup-overlay">
   <div id="popup-content">
     <span id="close-popup">&times;</span>
-    <h1>Want this map?</h1><br><p> Join our community now and get access to 22 Las Vegas Casino Maps and <span id="slot-count"></span> slot machines that are beatable.</p>
+    <h1>Want this map?</h1><p> Join our community now and get access to 22 Las Vegas Casino Maps and <span id="slot-count"></span> slot machines that are beatable.</p>
     <a href="https://form.jotform.com/242934403310042" class="popup-button">Join Now For $99.99</a>
-    <h1>Buy an AP guide</h1><p>for one of <span id="slot-count">61</span> advantage play slot machines for $29.99 right now and have it sent to your email.</p>
+    <h1>OR Buy an individual AP guide</h1><p>for one of <span id="slot-count">62</span> advantage play slot machines for $29.99 right now.</p>
     <a href="/apguides.html" class="popup-button">Buy Now $29.99</a>
   </div>
 </div>
