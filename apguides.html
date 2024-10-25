@@ -49,15 +49,17 @@
         display: flex;
         align-items: center;
         justify-content: flex-start; /* Aligns logo and text to the left */
-}
-
-.logo {
-    margin-right: 10px; /* Adds space between the logo and text */
-}
-
-.welcome-message {
-    margin-left: 10px; /* Adds space between the logo and the text */
-}
+        }
+        
+        .logo {
+        width: 50px; /* Adjust this size as needed */
+        height: auto; /* Maintains the logo's aspect ratio */
+        margin-right: 10px; /* Adds some space between logo and text */
+    }
+    
+    .welcome-message {
+        font-size: 1.5em; /* Adjusts text size */
+    }
 
         .machine-image {
             background-size: cover;
@@ -153,7 +155,7 @@
 <body>
 <header class="header">
     <img src="/logo.png" alt="SlotMaps Logo" class="logo">
-    <h1 class="welcome-message">Welcome to SlotMaps</h1>
+    <h1 class="welcome-message">SlotMaps AP Guide Marketplace</h1>
 </header>
     <!-- Container for AP Slot Machine tiles -->
     <div id="ap-machine-container" class="ap-grid"></div>
