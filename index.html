@@ -49,13 +49,16 @@
         /* Header styling */
         .header {
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.6);
-            top: 20px; /* Adjust for vertical positioning */
-            left: 20px; /* Adjust for horizontal positioning */
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            top: 0; /* Aligns header at the very top */
+            left: 0;
+            width: 100%; /* Makes the header span the full width */
+            padding: 20px; /* Adds padding for spacing around content */
             color: white; /* Ensures text is visible */
-            z-index: 2; /* Ensures header appears above the video */
+            z-index: 2; /* Places header above the video */
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Adds space between logo and text */
         }
         
         .logo {
