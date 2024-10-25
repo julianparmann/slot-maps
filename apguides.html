@@ -1,88 +1,207 @@
-<!-- Container for AP Slot Machine tiles -->
-<div id="ap-machine-container" class="ap-grid"></div>
-
-<!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
-<script>
-  window.onload = function() {
-    // Replace with your Google Sheets CSV URL for AP machines
-    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?output=csv';
-
-    function init() {
-      Papa.parse(publicSpreadsheetUrl, {
-        download: true,
-        header: true,
-        complete: function(results) {
-          var data = results.data; // This contains the parsed Google Sheets data
-          showMachines(data);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlotMaps - AP Slot Machines</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        /* Basic reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
-      });
-    }
 
-    function showMachines(data) {
-      data.forEach(function(machine) {
-        var machineCard = `
-          <div class="ap-tile" onclick="showPopup()">
-            <div class="machine-image" style="background-image: url('${machine.Photo}');">
-              <div class="machine-name">${machine['Machine Name']}</div>
-            </div>
-            <div class="machine-ratings">
-              <div class="rating-bar">
-                <span class="rating-label">Overall Value</span>
-                <div class="bar" style="width: ${machine['Overall Value']}%; background-color: ${getBarColor(machine['Overall Value'])};"></div>
+        /* Container for AP tiles */
+        #ap-machine-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        /* Tile styles */
+        .ap-tile {
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ap-tile:hover {
+            transform: scale(1.05);
+        }
+
+        .machine-image {
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+        }
+
+        .machine-name {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Rating bars */
+        .machine-ratings {
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .rating-bar {
+            margin-top: 8px;
+        }
+
+        .rating-label {
+            display: block;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .bar {
+            height: 8px;
+            border-radius: 5px;
+        }
+
+        /* Popup overlay */
+        #popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+
+        /* Popup content */
+        #popup-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            z-index: 1001;
+        }
+
+        /* Close button for popup */
+        #close-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for AP Slot Machine tiles -->
+    <div id="ap-machine-container" class="ap-grid"></div>
+
+    <!-- Popup Overlay and Content -->
+    <div id="popup-overlay">
+        <div id="popup-content">
+            <span id="close-popup">&times;</span>
+            <h2>Join Our Community</h2>
+            <p>Want this map? Join now and access 22 Las Vegas Casino Maps and X slot machines that are beatable.</p>
+            <a href="https://form.jotform.com/242934403310042">Join Now</a><br><br>
+            <a href="/apguides.html">Or Buy a Guide for $29.99</a>
+        </div>
+    </div>
+
+    <!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
+    <script>
+      window.onload = function() {
+        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?output=csv';
+
+        function init() {
+          Papa.parse(publicSpreadsheetUrl, {
+            download: true,
+            header: true,
+            complete: function(results) {
+              var data = results.data;
+              showMachines(data);
+            }
+          });
+        }
+
+        function showMachines(data) {
+          data.forEach(function(machine) {
+            var machineCard = `
+              <div class="ap-tile" onclick="showPopup()">
+                <div class="machine-image" style="background-image: url('${machine.Photo}');">
+                  <div class="machine-name">${machine['Machine Name']}</div>
+                </div>
+                <div class="machine-ratings">
+                  <div class="rating-bar">
+                    <span class="rating-label">Overall Value</span>
+                    <div class="bar" style="width: ${machine['Overall Value']}%; background-color: ${getBarColor(machine['Overall Value'])};"></div>
+                  </div>
+                  <div class="rating-bar">
+                    <span class="rating-label">Commonness</span>
+                    <div class="bar" style="width: ${machine.Commonness}%; background-color: ${getBarColor(machine.Commonness)};"></div>
+                  </div>
+                  <div class="rating-bar">
+                    <span class="rating-label">Variance</span>
+                    <div class="bar" style="width: ${machine.Variance}%; background-color: ${getBarColor(machine.Variance)};"></div>
+                  </div>
+                  <div class="rating-bar">
+                    <span class="rating-label">High Stakes Availability</span>
+                    <div class="bar" style="width: ${machine['High Stakes Availability']}%; background-color: ${getBarColor(machine['High Stakes Availability'])};"></div>
+                  </div>
+                </div>
               </div>
-              <div class="rating-bar">
-                <span class="rating-label">Commonness</span>
-                <div class="bar" style="width: ${machine.Commonness}%; background-color: ${getBarColor(machine.Commonness)};"></div>
-              </div>
-              <div class="rating-bar">
-                <span class="rating-label">Variance</span>
-                <div class="bar" style="width: ${machine.Variance}%; background-color: ${getBarColor(machine.Variance)};"></div>
-              </div>
-              <div class="rating-bar">
-                <span class="rating-label">High Stakes Availability</span>
-                <div class="bar" style="width: ${machine['High Stakes Availability']}%; background-color: ${getBarColor(machine['High Stakes Availability'])};"></div>
-              </div>
-            </div>
-          </div>
-        `;
-        document.getElementById('ap-machine-container').innerHTML += machineCard;
-      });
+            `;
+            document.getElementById('ap-machine-container').innerHTML += machineCard;
+          });
 
-      // Attach popup event listeners after cards are rendered
-      document.querySelectorAll('.ap-tile').forEach(card => {
-        card.addEventListener('click', showPopup);
-      });
-    }
+          document.querySelectorAll('.ap-tile').forEach(card => {
+            card.addEventListener('click', showPopup);
+          });
+        }
 
-    // Helper function to determine bar color based on value
-    function getBarColor(value) {
-      if (value >= 80) return 'green';
-      if (value >= 50) return '#f4a742'; // Orange-yellow color
-      return 'red';
-    }
+        function getBarColor(value) {
+          if (value >= 80) return 'green';
+          if (value >= 50) return '#f4a742';
+          return 'red';
+        }
 
-    init();
-  }
+        function showPopup() {
+          document.getElementById('popup-overlay').style.display = 'block';
+          document.getElementById('popup-content').style.display = 'block';
+        }
 
-  // Function to show the popup (optional, if needed)
-  function showPopup() {
-    document.getElementById('popup-overlay').style.display = 'block';
-    document.getElementById('popup-content').style.display = 'block';
-  }
+        function hidePopup() {
+          document.getElementById('popup-overlay').style.display = 'none';
+          document.getElementById('popup-content').style.display = 'none';
+        }
 
-  // Function to hide the popup (optional, if needed)
-  function hidePopup() {
-    document.getElementById('popup-overlay').style.display = 'none';
-    document.getElementById('popup-content').style.display = 'none';
-  }
+        document.getElementById('close-popup').addEventListener('click', hidePopup);
+        document.getElementById('popup-overlay').addEventListener('click', function(event) {
+          if (event.target === this) hidePopup();
+        });
 
-  // Event listener for the close button (optional, if you have a popup)
-  document.getElementById('close-popup').addEventListener('click', hidePopup);
+        init();
+      }
+    </script>
 
-  // Event listener for the overlay click (close on click outside content) (optional)
-  document.getElementById('popup-overlay').addEventListener('click', function(event) {
-    if (event.target === this) {
-      hidePopup();
-    }
-  });
-</script>
+</body>
+</html>
