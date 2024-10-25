@@ -48,29 +48,24 @@
         }
         /* Header styling */
         .header {
+            position: absolute;
+            top: 20px; /* Adjust for vertical positioning */
+            left: 20px; /* Adjust for horizontal positioning */
+            color: white; /* Ensures text is visible */
+            z-index: 2; /* Ensures header appears above the video */
             display: flex;
             align-items: center;
-            padding: 20px;
-            background-color: #1a1a1a; /* Background color for header */
-        }
-        
-        /* Logo styling */
-        .logo-container {
-            flex: 0 0 auto;
-            margin-right: 20px;
         }
         
         .logo {
-            max-width: 80px; /* Adjust size as needed */
-            height: auto;
+            max-width: 50px; /* Adjust logo size as needed */
+            margin-right: 10px;
         }
         
         /* Welcome message styling */
         .welcome-message {
-            font-size: 1.8em;
-            color: #fff;
+            font-size: 1.5em; /* Adjust font size as needed */
             font-weight: bold;
-            margin: 0;
         }
         /* Fullscreen video background */
         .video-container {
@@ -470,9 +465,8 @@
     <!-- Main Content -->
     <div class="video-container">
        <header class="header">
-        <div class="logo-container">
             <img src="/logo.png" alt="SlotMaps Logo" class="logo">
-        </div>
+        
         <h1 class="welcome-message">Welcome to SlotMaps</h1>
     </header>
     </div>
