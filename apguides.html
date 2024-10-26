@@ -231,6 +231,26 @@
             font-size: 1.2em;
             cursor: pointer;
         }
+        .intro-section {
+        max-width: 800px;
+        margin: 20px auto; /* Center and add space around the text */
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        text-align: center;
+        color: #333;
+        }
+        
+        .intro-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #597cff; /* Matches header background color */
+        }
+        
+        .intro-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -246,9 +266,18 @@
         <a href="index.html">🎰 Home</a>
     </div>
 </header>
+    <div class="intro-section">
+    <h2>Explore Advantage Play Slot Machines</h2>
+    <p>Welcome to the AP Guides Marketplace! Here, you'll find detailed insights on Advantage Play (AP) slot machines. Each tile below represents a popular machine with ratings for volatility & popularity. If you see a slot machine you recognize and are curious how to play it for profit, go ahead and buy the guide. It's only $29.99.</p>
+</div>
+
+<!-- Machine Tiles Section -->
+<div id="ap-machine-container" class="ap-grid"></div>
+
 <div class="ap-guides-title">
     <h2>Advantage Play Guides</h2>
 </div>
+    
 <!-- Container for AP Slot Machine tiles -->
 <div id="ap-machine-container" class="ap-grid"></div>
 
