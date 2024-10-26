@@ -41,7 +41,23 @@
         align-items: center; /* Centers items vertically within the flex container */
         }
 
-
+/* Style for the Casino Ratings title */
+        .ap-guides-title {
+            display: flex;
+            justify-content: center; /* Center the title horizontally */
+            margin: 20px 0; /* Add some vertical spacing */
+        }
+        
+        .ap-guides-title h2 {
+            background-color: white; /* White background for the floating effect */
+            padding: 15px 30px; /* Padding inside the title box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+            font-size: 2em;
+            color: #333; /* Dark text for contrast */
+            margin: 0; /* Remove default margin */
+            text-align: center;
+        }
         /* Container for AP tiles */
         #ap-machine-container {
             display: flex;
@@ -230,7 +246,9 @@
         <a href="index.html">🎰 Home</a>
     </div>
 </header>
-
+<div class="ap-guides-title">
+    <h2>Advantage Play Guides</h2>
+</div>
 <!-- Container for AP Slot Machine tiles -->
 <div id="ap-machine-container" class="ap-grid"></div>
 
