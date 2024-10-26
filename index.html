@@ -37,6 +37,13 @@
             gap: 20px; /* Space between links */
             padding-right: 20px;
         }
+        .logo-link, .welcome-message {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from the parent (white in this case) */
+            display: flex; /* Aligns content in the flex direction */
+            align-items: center; /* Centers items vertically within the flex container */
+        }
+
         
         .nav-links a {
             color: white; /* White color for text */
@@ -143,9 +150,9 @@
             top: 50%;
             transform: translateY(-50%);
             right: 0;
-            max-width: 100vw; /* Ensures the image doesn't exceed viewport width */
+            max-width: 95vw; /* Ensures the image doesn't exceed viewport width */
             height: auto; /* Maintains aspect ratio */
-            max-height: 100vh; /* Limits the height to the viewport */
+            max-height: 95vh; /* Limits the height to the viewport */
             object-fit:contain;
             z-index: 3;
         
@@ -577,17 +584,19 @@
 </head>
 <body>  <!-- Header Section -->
     <header class="header">
+    <a href="index.html" class="logo-link">
         <img src="/logo.png" alt="SlotMaps Logo" class="logo">
-        <h1 class="welcome-message">
-            SlotMaps
-            <div class="subtext">
-                <i>Stop Gambling. Start Winning.</i>
-            </div>
-        </h1>
-        <div class="nav-links">
-            <a href="apguides.html">📖AP Guides</a>
+    </a>
+    <a href="index.html" class="welcome-message">
+        SlotMaps
+        <div class="subtext">
+            <i>Stop Gambling.<br>Start Winning.</i>
         </div>
-    </header>
+    </a>
+    <div class="nav-links">
+        <a href="apguides.html">📖AP Guides</a>
+    </div>
+</header>
 
     <!-- Video Container with Overlay Image -->
     <div class="video-container">
