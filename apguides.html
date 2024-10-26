@@ -33,6 +33,13 @@
         .nav-links a:hover {
             color: #f4a742;
         }
+        .logo-link, .welcome-message {
+        text-decoration: none; /* Remove underline */
+        color: inherit; /* Inherit color from the parent (white in this case) */
+        display: flex; /* Aligns content in the flex direction */
+        align-items: center; /* Centers items vertically within the flex container */
+        }
+
 
         /* Container for AP tiles */
         #ap-machine-container {
@@ -207,12 +214,12 @@
 </head>
 <body>
 <header class="header">
-    <img src="/logo.png" alt="SlotMaps Logo" class="logo">
-    <h1 class="welcome-message">
+    <a href="index.html" class="logo-link"><img src="/logo.png" alt="SlotMaps Logo" class="logo"></a>
+    <h1 class="welcome-message"><a href="index.html class="welcome-message">
         SlotMaps
         <div class="subtext">
             <i>Stop Gambling. Start Winning.</i>
-        </div>
+        </div></a>
     </h1>
     <div class="nav-links">
         <a href="index.html">🎰 Home</a>
