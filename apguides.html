@@ -12,23 +12,26 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
+
+        /* Navigation styles */
         .nav-links {
-            margin-left: auto; /* Pushes links to the right side */
+            margin-left: auto;
             display: flex;
-            gap: 20px; /* Space between links */
+            gap: 20px;
             padding-right: 20px;
         }
         
         .nav-links a {
-            color: white; /* White color for text */
-            text-decoration: none; /* Remove underline */
-            font-size: 1em; /* Adjust font size */
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
             padding: 10px;
-            transition: color 0.3s ease; /* Smooth color transition on hover */
+            margin-right: 10px;
+            transition: color 0.3s ease;
         }
         
         .nav-links a:hover {
-            color: #f4a742; /* Highlight color on hover */
+            color: #f4a742;
         }
 
         /* Container for AP tiles */
@@ -41,107 +44,122 @@
 
         /* Tile styles */
         .ap-tile {
-            width: 300px; /* Fixed width for each card */
-            height: auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
             margin: 10px;
-            position: relative; /* Allows absolute positioning of inner elements */
-            background-color: #fff; /* Adds background color */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
-            border-radius: 10px; /* Rounded corners */
-            transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Image and button styles */
+        .machine-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 150px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .buy-guide-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        
+        .buy-guide-button:hover {
+            background-color: #218838;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.6);
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            color: white;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .welcome-message {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+        }
+    
+        .welcome-message .subtext {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.7em;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        /* Machine name */
+        .machine-name {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5em;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Rating bars */
+        .machine-ratings {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            padding: 5px;
+            margin-top: 10px;
         }
 
         .ap-tile:hover .machine-ratings {
             visibility: visible;
             opacity: 1;
         }
-        .header {
-        position: relative;
-        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-        top: 0; /* Aligns header at the very top */
-        left: 0;
-        width: 100%; /* Makes the header span the full width */
-        padding: 20px; /* Adds padding for spacing around content */
-        color: white; /* Ensures text is visible */
-        z-index: 2; /* Places header above the video */
-        display: flex;
-        align-items: center;
-        justify-content: flex-start; /* Aligns logo and text to the left */
-        }
-        
-        .logo {
-        width: 50px; /* Adjust this size as needed */
-        height: auto; /* Maintains the logo's aspect ratio */
-        margin-right: 10px; /* Adds some space between logo and text */
-    }
-    
-       .welcome-message {
-        display: flex;
-        align-items: center; /* Aligns the main title and subtext vertically */
-        gap: 15px; /* Adds space between the main title and subtext */
-    }
-    
-    .welcome-message .subtext {
-        display: flex;
-        flex-direction: column; /* Stacks the subtext vertically */
-        font-size: 0.7em; /* Adjusts the size of the subtext */
-        line-height: 1.2; /* Space between lines */
-        text-align: left;
-    }
-
-
-
-        .machine-image {
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 200px; /* Adjust the height as needed */
-            border-radius: 10px 10px 0 0; /* Rounded corners at the top */
-            position: relative; /* To ensure text and bars appear on top of the image */
-        }
-
-        .machine-name {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: white; /* Makes the text white */
-            font-weight: bold; /* Makes the text bold */
-            font-size: 1.5em; /* Adjust the size as needed */
-            z-index: 2; /* Ensures the text is above the image */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for readability */
-        }
-
-        /* Rating bars */
-        .machine-ratings {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            padding: 5px; /* Reduced padding */
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.3s ease-in-out;
-            z-index: 3; /* Ensure bars appear on top of the image */
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
-            border-radius: 15px; /* Rounded corners for the entire container */
-            overflow: hidden; /* Ensures the contents are within the rounded area */
-        }
 
         .rating-bar {
             background-color: #f1f1f1;
             border-radius: 15px;
             overflow: hidden;
-            margin-top: 3px; /* Reduced margin */
+            margin-top: 3px;
         }
 
         .rating-label {
-            padding-left: 10px; /* Add some padding to the left */
-            display: inline-block; /* Ensure proper spacing inside the box */
+            padding-left: 10px;
+            display: inline-block;
         }
 
         .bar {
-            height: 10px; /* Reduced height */
+            height: 10px;
             border-radius: 15px;
             background-color: #ccc;
         }
@@ -170,6 +188,7 @@
             width: 300px;
             text-align: center;
             z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         /* Close button for popup */
@@ -186,106 +205,99 @@
 <header class="header">
     <img src="/logo.png" alt="SlotMaps Logo" class="logo">
     <h1 class="welcome-message">
-    SlotMaps
-    <div class="subtext">
-        <i>Stop Gambling.<br>Start Winning.</i>
-    </div>
-</h1>
-
-
+        SlotMaps
+        <div class="subtext">
+            <i>Stop Gambling.<br>Start Winning.</i>
+        </div>
+    </h1>
     <div class="nav-links">
-        <a href="index.html">🎰Home</a>
+        <a href="index.html">🎰 Home</a>
     </div>
 </header>
-    <!-- Container for AP Slot Machine tiles -->
-    <div id="ap-machine-container" class="ap-grid"></div>
 
-    <!-- Popup Overlay and Content -->
-    <div id="popup-overlay">
-        <div id="popup-content">
-            <span id="close-popup">&times;</span>
-            <h2>Join Our Community</h2>
-            <p>Want this map? Join now and access 22 Las Vegas Casino Maps and X slot machines that are beatable.</p>
-            <a href="https://form.jotform.com/242934403310042">Join Now</a><br><br>
-            <a href="/apguides.html">Or Buy a Guide for $29.99</a>
-        </div>
+<!-- Container for AP Slot Machine tiles -->
+<div id="ap-machine-container" class="ap-grid"></div>
+
+<!-- Popup Overlay and Content -->
+<div id="popup-overlay">
+    <div id="popup-content">
+        <span id="close-popup">&times;</span>
+        <a href="https://buy.stripe.com/fZedUQaoO4mZ7Be9AA" class="buy-guide-button">Buy This Guide for $29.99</a>
     </div>
-
+</div>
     <!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
-    <script>
-      window.onload = function() {
-        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?output=csv';
+   <script>
+  window.onload = function() {
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?output=csv';
 
-        function init() {
-          Papa.parse(publicSpreadsheetUrl, {
-            download: true,
-            header: true,
-            complete: function(results) {
-              var data = results.data;
-              showMachines(data);
-            }
-          });
+    function init() {
+      Papa.parse(publicSpreadsheetUrl, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          var data = results.data;
+          showMachines(data);
         }
+      });
+    }
 
-        function showMachines(data) {
-          data.forEach(function(machine) {
-            var machineCard = `
-              <div class="ap-tile" onclick="showPopup()">
-                <div class="machine-image" style="background-image: url('${machine.Photo}');">
-                  <div class="machine-name">${machine['Machine Name']}</div>
-                </div>
-                <div class="machine-ratings">
-                  <div class="rating-bar">
-                    <span class="rating-label">Overall Value</span>
-                    <div class="bar" style="width: ${machine['Overall Value']}%; background-color: ${getBarColor(machine['Overall Value'])};"></div>
-                  </div>
-                  <div class="rating-bar">
-                    <span class="rating-label">Commonness</span>
-                    <div class="bar" style="width: ${machine.Commonness}%; background-color: ${getBarColor(machine.Commonness)};"></div>
-                  </div>
-                  <div class="rating-bar">
-                    <span class="rating-label">Variance</span>
-                    <div class="bar" style="width: ${machine.Variance}%; background-color: ${getBarColor(machine.Variance)};"></div>
-                  </div>
-                  <div class="rating-bar">
-                    <span class="rating-label">High Stakes Availability</span>
-                    <div class="bar" style="width: ${machine['High Stakes Availability']}%; background-color: ${getBarColor(machine['High Stakes Availability'])};"></div>
-                  </div>
-                </div>
+    function showMachines(data) {
+      data.forEach(function(machine) {
+        var machineCard = `
+          <div class="ap-tile" onclick="showPopup()">
+            <div class="machine-image" style="background-image: url('${machine.Photo}');">
+              <div class="machine-name">${machine['Machine Name']}</div>
+            </div>
+            <div class="machine-ratings">
+              <div class="rating-bar">
+                <span class="rating-label">Volatility</span>
+                <div class="bar" style="width: ${machine.Volatility}%; background-color: ${getVolatilityColor(machine.Volatility)};"></div>
               </div>
-            `;
-            document.getElementById('ap-machine-container').innerHTML += machineCard;
-          });
+              <div class="rating-bar">
+                <span class="rating-label">Popularity</span>
+                <div class="bar" style="width: ${machine.Popularity}%; background-color: ${getPopularityColor(machine.Popularity)};"></div>
+              </div>
+            </div>
+            <a href="https://buy.stripe.com/fZedUQaoO4mZ7Be9AA" class="buy-guide-button" target="_blank" onclick="event.stopPropagation()">Buy This Guide</a>
+          </div>
+        `;
+        document.getElementById('ap-machine-container').innerHTML += machineCard;
+      });
 
-          document.querySelectorAll('.ap-tile').forEach(card => {
-            card.addEventListener('click', showPopup);
-          });
-        }
+      document.querySelectorAll('.ap-tile').forEach(card => {
+        card.addEventListener('click', showPopup);
+      });
+    }
 
-        function getBarColor(value) {
-          if (value >= 80) return 'green';
-          if (value >= 50) return '#f4a742';
-          return 'red';
-        }
+    function getVolatilityColor(value) {
+      if (value >= 80) return 'red';
+      if (value >= 50) return 'orange';
+      return 'green';
+    }
 
-        function showPopup() {
-          document.getElementById('popup-overlay').style.display = 'block';
-          document.getElementById('popup-content').style.display = 'block';
-        }
+    function getPopularityColor(value) {
+      if (value >= 80) return 'green';
+      if (value >= 50) return 'orange';
+      return 'red';
+    }
 
-        function hidePopup() {
-          document.getElementById('popup-overlay').style.display = 'none';
-          document.getElementById('popup-content').style.display = 'none';
-        }
+    function showPopup() {
+      document.getElementById('popup-overlay').style.display = 'block';
+      document.getElementById('popup-content').style.display = 'block';
+    }
 
-        document.getElementById('close-popup').addEventListener('click', hidePopup);
-        document.getElementById('popup-overlay').addEventListener('click', function(event) {
-          if (event.target === this) hidePopup();
-        });
+    function hidePopup() {
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.getElementById('popup-content').style.display = 'none';
+    }
 
-        init();
-      }
-    </script>
+    document.getElementById('close-popup').addEventListener('click', hidePopup);
+    document.getElementById('popup-overlay').addEventListener('click', function(event) {
+      if (event.target === this) hidePopup();
+    });
 
+    init();
+  }
+</script>
 </body>
 </html>
