@@ -129,16 +129,18 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* Rating bars */
         .machine-ratings {
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.3s ease-in-out;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            overflow: hidden;
-            padding: 5px;
-            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px; /* Adjust as needed for spacing */
+            visibility: hidden; /* Hidden until hover */
+            opacity: 0; /* Hidden until hover */
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1; /* Base z-index */
+            background-color: rgba(0, 0, 0, 0.6); /* Background for readability */
+            border-radius: 10px; /* Rounded corners */
         }
 
         .ap-tile:hover .machine-ratings {
