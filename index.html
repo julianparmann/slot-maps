@@ -239,50 +239,36 @@
         flex: 1 1 100%;
     }
 
-    /* Header and Navigation for Mobile */
-    .header {
-        position: fixed; /* Fixes header at the top */
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
-        color: white;
-        padding: 10px 20px;
-        z-index: 3; /* Ensures it appears above other elements */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+      .logo {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
 
-    .logo {
-        width: 40px;
-        height: auto;
-        margin-right: 10px;
-    }
+.welcome-message {
+    font-size: 1.2em;
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Stacks main message and subtext */
+}
 
-    .welcome-message {
-        font-size: 1.2em;
-        text-align: left;
-    }
+.welcome-message .subtext {
+    font-size: 0.8em;
+    line-height: 1.2;
+}
 
-    .welcome-message .subtext {
-        font-size: 0.8em;
-        line-height: 1.2;
-    }
+.nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping if needed */
+    justify-content: flex-end;
+    padding: 0;
+}
 
-    /* Navigation Links */
-    .nav-links {
-        flex-direction: row;
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0;
-    }
-
-    .nav-links a {
-        font-size: 0.9em;
-        padding: 5px;
-    }
+.nav-links a {
+    font-size: 0.9em;
+    padding: 5px;
+}
 
     /* Content Section Images */
     .content-section img {
