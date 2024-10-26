@@ -189,96 +189,109 @@
         }
     
 
-        /* Media query for mobile devices */
-           @media (max-width: 768px) {
-    
-        /* Content Section Text */
-        .content-section .text {
-            font-size: 1em; /* Make text smaller on mobile */
-            padding: 10px;  /* Adjust padding for smaller screens */
-        } 
-    
-        /* Video Container */
-        .video-container {
-            height: auto;
-            min-height: 50vh;
-        }
-        
-        .video-container video {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-    
-        /* Top Image */
-        .top-image {
-            width: 100vw;
-            height: auto;
-            max-height: 100vh;
-            right: 2px;
-            top: 20%; /* Adjust top position for spacing */
-            transform: translateY(-50%);
-        }
-    
-        /* Headline Section */
-        .headline {
-            text-align: center;
-            padding: 20px 10px; /* Reduced padding */
-            background-color: #1a82d8;
-            z-index: 1;
-        }
-    
-        .headline h1 {
-            font-size: 1.8em; /* Adjust the headline font size */
-        }
-        
-        .headline p {
-            font-size: 1em; /* Adjust subtitle font size */
-        }
-    
-        /* Subscription Tier */
-        .subscription-tier {
-            flex: 1 1 100%; /* Makes each box take up 100% of the width on small screens */
-        }
-    
-        /* Header and Navigation */
-        .header {
-            flex-direction: column; /* Stack items vertically */
-            align-items: flex-start; /* Align items to the start */
-            padding: 10px 20px; /* Reduce padding */
-        }
-    
-        .welcome-message {
-            font-size: 1.5em; /* Smaller font size on mobile */
-            text-align: left; /* Align to left */
-        }
-    
-        .welcome-message .subtext {
-            font-size: 0.9em; /* Adjusts the size of the subtext */
-            line-height: 1.2; /* Space between lines */
-            text-align: left;
-        }
-    
-        /* Navigation Links */
-        .nav-links {
-            flex-direction: row; /* Keep links in a row */
-            width: 100%;
-            flex-wrap: wrap; /* Wrap links if they overflow */
-            justify-content: space-between; /* Space links evenly */
-            padding: 0; /* Remove extra padding */
-        }
-    
-        .nav-links a {
-            font-size: 0.9em; /* Smaller font for mobile */
-            padding: 5px; /* Smaller padding */
-        }
-    
-        /* Content Section Images */
-        .content-section img {
-            max-width: 90%;
-            height: auto;
-        }
+        @media (max-width: 768px) {
+
+    /* Content Section Text */
+    .content-section .text {
+        font-size: 1em;
+        padding: 10px;
     }
+
+    /* Video Container */
+    .video-container {
+        height: auto;
+        min-height: 50vh;
+    }
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Top Image */
+    .top-image {
+        width: 100vw;
+        height: auto;
+        max-height: 100vh;
+        right: 2px;
+        top: 20%;
+        transform: translateY(-50%);
+    }
+
+    /* Headline Section */
+    .headline {
+        text-align: center;
+        padding: 20px 10px;
+        background-color: #1a82d8;
+        z-index: 1;
+    }
+
+    .headline h1 {
+        font-size: 1.8em;
+    }
+
+    .headline p {
+        font-size: 1em;
+    }
+
+    /* Subscription Tier */
+    .subscription-tier {
+        flex: 1 1 100%;
+    }
+
+    /* Header and Navigation for Mobile */
+    .header {
+        position: fixed; /* Fixes header at the top */
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
+        color: white;
+        padding: 10px 20px;
+        z-index: 3; /* Ensures it appears above other elements */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        width: 40px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .welcome-message {
+        font-size: 1.2em;
+        text-align: left;
+    }
+
+    .welcome-message .subtext {
+        font-size: 0.8em;
+        line-height: 1.2;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    .nav-links a {
+        font-size: 0.9em;
+        padding: 5px;
+    }
+
+    /* Content Section Images */
+    .content-section img {
+        max-width: 90%;
+        height: auto;
+    }
+}
+
 
 
         /* Image and text layout (phone on right, text on left) */
