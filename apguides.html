@@ -268,29 +268,17 @@
 </header>
     <div class="intro-section">
     <h2>Explore Advantage Play Slot Machines</h2>
-    <p>Welcome to the AP Guides Marketplace! Here, you'll find detailed insights on Advantage Play (AP) slot machines. Each tile below represents a popular machine with ratings for volatility & popularity. If you see a slot machine you recognize and are curious how to play it for profit, go ahead and buy the guide. It's only $29.99.</p>
+    <p>Welcome to the AP Guides Marketplace! Here, every tile is a path to profitable play. We’ve broken down the top Advantage Play machines so you don’t have to guess. Recognize a machine and want the inside scoop? The guide is only $29.99—click in and start playing smart.</p>
 </div>
 <div class="ap-guides-title">
     <h2>Advantage Play Guides</h2>
 </div>
-<!-- Machine Tiles Section -->
+
+   <!-- Container for AP Slot Machine tiles -->
 <div id="ap-machine-container" class="ap-grid"></div>
 
-
-    
-<!-- Container for AP Slot Machine tiles -->
-<div id="ap-machine-container" class="ap-grid"></div>
-
-<!-- Popup Overlay and Content -->
-<div id="popup-overlay">
-    <div id="popup-content">
-        <h1>Get This In-Depth Guide On How To Play This Machine Now</h1>
-        <span id="close-popup">&times;</span>
-        <a href="https://buy.stripe.com/fZedUQaoO4mZ7Be9AA" class="buy-guide-button">Buy This Guide for $29.99</a>
-    </div>
-</div>
-    <!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
-   <script>
+<!-- Script to load data from Google Sheets using Papa Parse and directly link to Stripe -->
+<script>
   window.onload = function() {
     var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?output=csv';
 
@@ -308,43 +296,21 @@
     function showMachines(data) {
       data.forEach(function(machine) {
         var machineCard = `
-          <div class="ap-tile" onclick="showPopup('${machine['Stripe Link']}')">
+          <a href="${machine['Stripe Link']}" class="ap-tile" target="_blank">
             <div class="machine-image" style="background-image: url('${machine.Photo}');">
               <div class="machine-name">${machine['Machine Name']}</div>
             </div>
             <div class="buy-text">Buy this guide for $29.99</div>
-          </div>
+          </a>
         `;
         document.getElementById('ap-machine-container').innerHTML += machineCard;
       });
     }
 
-    function showPopup(stripeLink) {
-      var popupContent = document.getElementById('popup-content');
-      popupContent.innerHTML = `
-        <span id="close-popup">&times;</span>
-        <h2>Purchase Guide</h2>
-        <p>Click below to buy this guide for $29.99:</p>
-        <a href="${stripeLink}" class="popup-button" target="_blank">Buy Now</a>
-      `;
-      document.getElementById('popup-overlay').style.display = 'block';
-      document.getElementById('popup-content').style.display = 'block';
-
-      // Close popup when clicking on close button or overlay
-      document.getElementById('close-popup').addEventListener('click', hidePopup);
-      document.getElementById('popup-overlay').addEventListener('click', function(event) {
-        if (event.target === this) hidePopup();
-      });
-    }
-
-    function hidePopup() {
-      document.getElementById('popup-overlay').style.display = 'none';
-      document.getElementById('popup-content').style.display = 'none';
-    }
-
     init();
   }
 </script>
+
 
 </body>
 </html>
