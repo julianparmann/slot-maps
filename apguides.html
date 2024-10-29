@@ -308,46 +308,33 @@
     function showMachines(data) {
       data.forEach(function(machine) {
         var machineCard = `
-          <div class="ap-tile" onclick="showPopup()">
+          <div class="ap-tile" onclick="showPopup('${machine['Stripe Link']}')">
             <div class="machine-image" style="background-image: url('${machine.Photo}');">
               <div class="machine-name">${machine['Machine Name']}</div>
             </div>
-            <div class="machine-ratings">
-              <div class="rating-bar">
-                <span class="rating-label">Volatility</span>
-                <div class="bar" style="width: ${machine.Volatility}%; background-color: ${getVolatilityColor(machine.Volatility)};"></div>
-              </div>
-              <div class="rating-bar">
-                <span class="rating-label">Popularity</span>
-                <div class="bar" style="width: ${machine.Popularity}%; background-color: ${getPopularityColor(machine.Popularity)};"></div>
-              </div>
-            </div>
-            <a href="https://buy.stripe.com/fZedUQaoO4mZ7Be9AA" class="buy-guide-button" target="_blank" onclick="event.stopPropagation()">Buy This Guide</a>
+            <div class="buy-text">Buy this guide for $29.99</div>
           </div>
         `;
         document.getElementById('ap-machine-container').innerHTML += machineCard;
       });
-
-      document.querySelectorAll('.ap-tile').forEach(card => {
-        card.addEventListener('click', showPopup);
-      });
     }
 
-    function getVolatilityColor(value) {
-      if (value >= 80) return 'red';
-      if (value >= 50) return 'orange';
-      return 'green';
-    }
-
-    function getPopularityColor(value) {
-      if (value >= 80) return 'green';
-      if (value >= 50) return 'orange';
-      return 'red';
-    }
-
-    function showPopup() {
+    function showPopup(stripeLink) {
+      var popupContent = document.getElementById('popup-content');
+      popupContent.innerHTML = `
+        <span id="close-popup">&times;</span>
+        <h2>Purchase Guide</h2>
+        <p>Click below to buy this guide for $29.99:</p>
+        <a href="${stripeLink}" class="popup-button" target="_blank">Buy Now</a>
+      `;
       document.getElementById('popup-overlay').style.display = 'block';
       document.getElementById('popup-content').style.display = 'block';
+
+      // Close popup when clicking on close button or overlay
+      document.getElementById('close-popup').addEventListener('click', hidePopup);
+      document.getElementById('popup-overlay').addEventListener('click', function(event) {
+        if (event.target === this) hidePopup();
+      });
     }
 
     function hidePopup() {
@@ -355,13 +342,9 @@
       document.getElementById('popup-content').style.display = 'none';
     }
 
-    document.getElementById('close-popup').addEventListener('click', hidePopup);
-    document.getElementById('popup-overlay').addEventListener('click', function(event) {
-      if (event.target === this) hidePopup();
-    });
-
     init();
   }
 </script>
+
 </body>
 </html>
