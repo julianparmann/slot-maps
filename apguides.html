@@ -271,6 +271,15 @@
     <p>Welcome to the AP Guides Marketplace! Here, every tile is a path to profitable play. We’ve broken down the top Advantage Play machines so you don’t have to guess. Recognize a machine and want the inside scoop? The guide is only $29.99—click in and start playing smart. <br><br>
         Want a little extra value? Get the <b>SlotMaps Starter Pack</b> which includes 5 AP Guides, along with some general tips for learning to become an advantage slot player. <B>Just $79.99</B></p>
 </div>
+    <h2>Advantage Play Guides for Sale</h2>
+<div id="ap-guides-sale" class="ap-grid"></div>
+
+<h2>PRO Subscriber Exclusive Guides</h2>
+<div id="ap-guides-pro" class="ap-grid"></div>
+
+<h2>Starter Pack Guides</h2>
+<div id="ap-guides-starter" class="ap-grid"></div>
+
 <div class="ap-guides-title">
     <h2>Advantage Play Guides</h2>
 </div>
@@ -283,35 +292,49 @@
 <!-- Script to load data from Google Sheets using Papa Parse and directly link to Stripe -->
 <script>
   window.onload = function() {
-    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?output=csv';
+    // URLs for each tab in the Google Sheet
+    var saleTabUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?gid=0&output=csv';
+    var proTabUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?gid=775981633&output=csv';
+    var starterTabUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQFH3hXgs8ThLLYcOdWpctJotOid42a5TQbmC3CiBck0o-sVJg_5jfdVS_8NHiEx3renedTlyBzlH4W/pub?gid=907250178&output=csv';
 
     function init() {
-      Papa.parse(publicSpreadsheetUrl, {
-        download: true,
-        header: true,
-        complete: function(results) {
-          var data = results.data;
-          showMachines(data);
-        }
-      });
+        loadAPGuides(saleTabUrl, 'ap-guides-sale');
+        loadAPGuides(proTabUrl, 'ap-guides-pro');
+        loadAPGuides(starterTabUrl, 'ap-guides-starter');
     }
 
-    function showMachines(data) {
-      data.forEach(function(machine) {
-        var machineCard = `
-          <a href="${machine['Stripe Link']}" class="ap-tile" target="_blank">
-            <div class="machine-image" style="background-image: url('${machine.Photo}');">
-              <div class="machine-name">${machine['Machine Name']}</div>
-            </div>
-            <div class="buy-text">Buy this guide for $29.99</div>
-          </a>
-        `;
-        document.getElementById('ap-machine-container').innerHTML += machineCard;
-      });
+    // Function to load AP Guides for a specific category
+    function loadAPGuides(sheetUrl, containerId) {
+        Papa.parse(sheetUrl, {
+            download: true,
+            header: true,
+            complete: function(results) {
+                var data = results.data;
+                displayMachines(data, containerId);
+            }
+        });
+    }
+
+    // Display AP Guides in the specified container
+    function displayMachines(data, containerId) {
+        var container = document.getElementById(containerId);
+        container.innerHTML = ''; // Clear previous content
+        data.forEach(function(machine) {
+            var machineCard = `
+                <a href="${machine['Stripe Link']}" class="ap-tile" target="_blank">
+                    <div class="machine-image" style="background-image: url('${machine.Photo}');">
+                        <div class="machine-name">${machine['Machine Name']}</div>
+                    </div>
+                    <div class="buy-text">Buy this guide for $29.99</div>
+                </a>
+            `;
+            container.innerHTML += machineCard;
+        });
     }
 
     init();
-  }
+}
+
 </script>
 
 
