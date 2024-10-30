@@ -58,20 +58,19 @@
             margin: 0; /* Remove default margin */
             text-align: center;
         }
-        /* Container for AP tiles */
+                /* Container for AP tiles */
         #ap-machine-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-            gap: 10px;
-            padding: 10px;
-            justify-items: center; /* Center-aligns items within the grid */
-    }
-
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centers the grid on the page */
+            gap: 20px; /* Space between tiles */
+            padding: 20px;
+        }
         
-                    /* Tile styles */
+        /* Tile styles */
         .ap-tile {
-            width: 250px; /* Fixed width for uniform tile sizing */
-            height: auto;
+            flex: 1 1 250px; /* Each tile takes up a width of 250px */
+            max-width: 250px; /* Prevents tiles from expanding beyond 250px */
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -93,6 +92,7 @@
             border-radius: 10px 10px 0 0;
             position: relative;
         }
+
 
         .buy-guide-button {
             display: inline-block;
