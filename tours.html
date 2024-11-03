@@ -243,7 +243,27 @@
             font-size: 1.1em;
             color: white; /* Slightly lighter color for subtitle text */
         }
-
+        /* Grayscale and dim effect for coming-soon casinos */
+        .casino-card.coming-soon .casino-image {
+          filter: grayscale(100%) brightness(0.6); /* Grayscale and dim effect */
+          position: relative;
+        }
+        
+        /* Coming Soon overlay text */
+        .coming-soon-overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white;
+          background-color: rgba(0, 0, 0, 0.7);
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-size: 1.2em;
+          font-weight: bold;
+          text-align: center;
+          z-index: 3;
+        }
         #casino-container {
             display: flex;
             flex-wrap: wrap; /* Ensures tiles wrap to the next line when needed */
