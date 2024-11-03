@@ -22,259 +22,565 @@
     </script>
     
     <style>
-    /* Basic reset for margins and paddings */
-    body, html {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        overflow-x: hidden;
-    }
+      Pre get code fix css
 
-    /* Navigation and Header styles */
-    .nav-links {
-        margin-left: auto;
-        display: flex;
-        gap: 20px;
-        padding-right: 20px;
-    }
-
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 1em;
-        padding: 10px;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: #f4a742;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        width: 100%;
-        color: white;
-        background-color: rgba(89, 124, 255, 0.6);
-        top: 0;
-        z-index: 2;
-    }
-
-    .logo {
-        max-width: 50px;
-        margin-right: 10px;
-    }
-
-    .welcome-message {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .welcome-message .subtext {
-        font-size: 0.7em;
-        line-height: 0.8;
-    }
-
-    /* Fullscreen video background */
-    .video-container {
-        position: relative;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .video-container video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
-
-    /* Casino card container */
-    #casino-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 20px;
-    }
-
-    /* Casino card style */
-    .casino-card {
-        width: 300px;
-        margin: 10px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .casino-card:hover {
-        transform: scale(1.05);
-    }
-
-    /* Casino image */
-    .casino-image {
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 200px;
-        border-radius: 10px 10px 0 0;
-        position: relative;
-    }
-
-    /* Casino name overlay */
-    .casino-name {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        color: white;
-        font-weight: bold;
-        font-size: 1.5em;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Casino ratings overlay */
-    .casino-ratings {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 60%;
-        padding: 5px;
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.3s ease;
-        background-color: rgba(0, 0, 0, 0.6);
-        border-radius: 15px;
-    }
-
-    .casino-card:hover .casino-ratings {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    /* Rating bar */
-    .rating-bar {
-        background-color: #f1f1f1;
-        border-radius: 15px;
-        overflow: hidden;
-        margin-top: 3px;
-    }
-
-    .rating-label {
-        padding-left: 10px;
-        display: inline-block;
-    }
-
-    .bar {
-        height: 10px;
-        border-radius: 15px;
-    }
-
-    /* Popup overlay */
-    #popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        display: none;
-    }
-
-    /* Popup content */
-    #popup-content {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        width: 300px;
-        text-align: center;
-        z-index: 1001;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Close button for popup */
-    #close-popup {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 1.5em;
-        cursor: pointer;
-    }
-
-    /* Popup button */
-    .popup-button {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #007BFF;
-        color: #fff;
-        border-radius: 5px;
-        text-decoration: none;
-    }
-
-    .popup-button:hover {
-        background-color: #0056b3;
-    }
-
-    /* Intro section for tour pages */
-    .intro-section {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 15px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        text-align: center;
-        color: #333;
-    }
-
-    .intro-section h2 {
-        font-size: 1.8em;
-        color: #597cff;
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-        .floating-text-box {
-            width: 90%;
-            font-size: 1em;
+/* Basic reset for margins and paddings */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
         }
+        .nav-links {
+            margin-left: auto; /* Pushes links to the right side */
+            display: flex;
+            gap: 20px; /* Space between links */
+            padding-right: 20px;
+        }
+        .logo-link, .welcome-message {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from the parent (white in this case) */
+            display: flex; /* Aligns content in the flex direction */
+            align-items: center; /* Centers items vertically within the flex container */
+        }
+
         
-        .content-section .text {
-            font-size: 1em;
+        .nav-links a {
+            color: white; /* White color for text */
+            text-decoration: none; /* Remove underline */
+            font-size: 1em; /* Adjust font size */
             padding: 10px;
+            transition: color 0.3s ease; /* Smooth color transition on hover */
         }
         
-        .video-container {
-            height: auto;
-            min-height: 50vh;
-        }
-        
-        .video-container video {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
+        .nav-links a:hover {
+            color: #f4a742; /* Highlight color on hover */
         }
 
+
+        .floating-backdrop {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px 20px;
+        width: 100%;
+        color: white;
+        background-color: rgba(89, 124, 255, 0.6); /* Semi-transparent blue */
+        top: 0; /* Aligns header at the very top */
+        left: 0;
+        z-index:2
+    }
+        
+        .logo {
+            max-width: 50px; /* Adjust logo size as needed */
+            margin-right: 10px;
+        }
+        
+        .welcome-message {
+            display: flex;
+            align-items: center; /* Aligns the main title and subtext vertically */
+            gap: 15px; /* Adds space between the main title and subtext */
+        }
+        
+        .welcome-message .subtext {
+            display: flex;
+            font-size: 0.7em; /* Adjusts the size of the subtext */
+            line-height: 0.8; /* Space between lines */
+            text-align: left;
+        }
+
+
+        /* Fullscreen video background */
+        .video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+     
+        /* Style for the Casino Ratings title */
+        .casino-ratings-title {
+            display: flex;
+            justify-content: center; /* Center the title horizontally */
+            margin: 20px 0; /* Add some vertical spacing */
+        }
+        
+        .casino-ratings-title h2 {
+            background-color: white; /* White background for the floating effect */
+            padding: 15px 30px; /* Padding inside the title box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+            font-size: 2em;
+            color: #333; /* Dark text for contrast */
+            margin: 0; /* Remove default margin */
+            text-align: center;
+        }
+ 
+
+
+        /* Style for the first PNG image on top */
+        .top-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            max-width: 95vw; /* Ensures the image doesn't exceed viewport width */
+            height: auto; /* Maintains aspect ratio */
+            max-height: 95vh; /* Limits the height to the viewport */
+            object-fit:contain;
+            z-index: 3;
+        
+        }
+        /* Style for casinos.png */
+        .casinos {
+            max-width: 300px;  /* Default width for desktop */
+            height: auto;      /* Maintain aspect ratio */
+            z-index: 1;        /* Ensure proper stacking */
+        }
+
+        /* Style for apguide.png */
+        .apguide {
+            max-width: 300px;  /* Default width for desktop */
+            height: auto;      /* Maintain aspect ratio */
+            z-index: 1;
+        }
+
+        /* Scroll down content */
+        .content-section {
+            display: flex;
+            align-items: flex-start; /* Align items at the top */
+            justify-content: flex-start; /* Align content to the left */
+            padding: 20px; /* Adjust padding to reduce spacing */
+            min-height: auto; /* Remove the full-screen height */
+            box-sizing: border-box;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            overflow: hidden;
+            flex-wrap: wrap;
+            height: auto;
+        }
+
+        .content-section .text {
+            padding: 0px;
+            max-width: 100%;
+            font-size: 1.2em;
+            box-sizing: border-box;
+        }
+    
+
+       
+}
+
+
+
+        /* Image and text layout (phone on right, text on left) */
+        .image-right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        /* Subscribe button style */
+        .subscribe-button {
+            display: block;
+            width: 200px;
+            margin: 50px auto;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .subscribe-button:hover {
+            background-color: #218838;
+        }
+
+        /* Headline Section */
         .headline {
-            padding: 5px 10px;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #1a82d8; /* Light background to distinguish the section */
         }
 
         .headline h1 {
-            font-size: 1.8em;
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: white; /* White color for headline text */
         }
+
+        .headline p {
+            font-size: 1.1em;
+            color: white; /* Slightly lighter color for subtitle text */
+        }
+
+        #casino-container {
+            display: flex;
+            flex-wrap: wrap; /* Ensures tiles wrap to the next line when needed */
+            justify-content: space-around; /* Distributes space between the cards */
+            padding: 20px;
+        }
+        
+        /* Style for the casino cards */
+        .casino-card {
+            width: 300px; /* Fixed width for each card */
+            height: auto;
+            margin: 10px;
+            position: relative; /* Allows absolute positioning of inner elements */
+            background-color: #fff; /* Adds background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+            border-radius: 10px; /* Rounded corners */
+            transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+        }
+        
+        /* Add hover effect to slightly scale up the card */
+        .casino-card:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Style for the casino image */
+        .casino-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+            position: relative; /* To ensure text and bars appear on top of the image */
+        }
+        
+        /* Style for the casino name text overlay */
+        .casino-name {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white; /* Makes the text white */
+            font-weight: bold; /* Makes the text bold */
+            font-size: 1.5em; /* Adjust the size as needed */
+            z-index: 2; /* Ensures the text is above the image */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for readability */
+        }
+        
+        /* Style for the rating bars to overlay the image */
+        .casino-ratings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            padding: 5px; /* Reduced padding */
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+            z-index: 3; /* Ensure bars appear on top of the image */
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
+            border-radius: 15px; /* Rounded corners for the entire container */
+            overflow: hidden; /* Ensures the contents are within the rounded area */
+        }
+
+        .rating-label {
+            padding-left: 10px; /* Add some padding to the left */
+            display: inline-block; /* Ensure proper spacing inside the box */
+            
+        }
+        
+        /* Show the bars when hovering over the casino tile */
+        .casino-card:hover .casino-ratings {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Style for rating bars */
+        .rating-bar {
+            background-color: #f1f1f1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 3px; /* Reduced margin */
+        }
+        
+        .bar {
+            height: 10px; /* Reduced height */
+            border-radius: 15px;
+            background-color: #ccc;
+        }
+/* Reviews Section */
+        .reviews-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #f9f9f9; /* Light background color to distinguish the section */
+            border-top: 1px solid #ddd; /* Separate it visually from the pricing options */
+        }
+        
+        .reviews-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .review {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stars {
+            color: #ffc107; /* Gold star color */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .reviewer {
+            font-weight: bold;
+            color: #333;
+        }
+        .subscription-container {
+            display: flex;
+            flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+            justify-content: space-around; /* Creates space between the two options */
+            padding: 20px 0;
+        }
+           
+        .subscription-options {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .subscription-tier {
+            flex: 1 1 calc(50% - 20px);
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subscription-tier h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subscription-tier p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .pay-now-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e98f1;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .pay-now-button:hover {
+            background-color: #1a82d8;
+        }
+        /* Popup Overlay */
+        #popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+          z-index: 1000; /* Ensure it appears above everything */
+          display: none; /* Hidden by default */
+        }
+        
+        /* Popup Content */
+        #popup-content {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); /* Center the popup */
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          width: 300px; /* Adjust width for layout */
+          z-index: 1001; /* Ensure it appears above the overlay */
+          text-align: center;
+        }
+        
+        /* Close Button */
+        #close-popup {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          font-size: 1.5em;
+        }
+        
+        /* Button inside popup */
+        .popup-button {
+          display: inline-block;
+          margin: 10px;
+          padding: 10px 20px;
+          background-color: #007BFF;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        
+        .popup-button:hover {
+          background-color: #0056b3;
+        }
+
+        /* Style for the floating text box */
+        .floating-text-box {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -20%);
+          background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+          color: white;
+          padding: 20px;
+          border-radius: 10px;
+          width: 25%; /* Adjust width based on preference */
+          max-width: 800px;
+          z-index: 2; /* Ensure it appears above the video and image */
+          text-align: center;
+          font-size: 1.2em;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-text-box h2 {
+          margin-top: 0;
+          font-size: 1.5em;
+        }
+        
+        @media (max-width: 768px) {
+          .floating-text-box {
+            width: 90%;
+            font-size: 1em;
+          }
+
+    /* Content Section Text */
+            .content-section .text {
+                font-size: 1em;
+                padding: 10px;
+            }
+        
+            /* Video Container */
+            .video-container {
+                height: auto;
+                min-height: 50vh;
+            }
+        
+            .video-container video {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        
+            
+        
+            /* Headline Section */
+            .headline {
+                text-align: center;
+                padding: 5px 10px;
+                background-color: #1a82d8;
+                z-index: 1;
+            }
+        
+            .headline h1 {
+                font-size: 1.8em;
+            }
+        
+            .headline p {
+                font-size: 1em;
+            }
+        
+            /* Subscription Tier */
+            .subscription-tier {
+                flex: 1 1 100%;
+            }
+        
+              .logo {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+        
+        .welcome-message {
+            font-size: 1.2em;
+            text-align: left;
+            display: flex;
+            flex-direction: column; /* Stacks main message and subtext */
+        }
+        
+        .welcome-message .subtext {
+            font-size: 0.8em;
+            line-height: 1.2;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap; /* Allows wrapping if needed */
+            justify-content: flex-end;
+            padding: 0;
+        }
+        
+        .nav-links a {
+            font-size: 0.9em;
+            padding: 5px;
+        }
+
+    /* Content Section Images */
+    .content-section img {
+        max-width: 90%;
+        height: auto;
     }
-</style>
+        }
+
+
+
+
+    </style>
 
 </head>
 <body>  <!-- Header Section -->
@@ -396,10 +702,12 @@
 <div id="popup-overlay">
   <div id="popup-content">
     <span id="close-popup">&times;</span>
-    <h1>Want this map?</h1><p> Join our community now and get access to 22 Las Vegas Casino Maps and <span id="slot-count"></span> slot machines that are beatable.</p>
-    <a href="https://form.jotform.com/242934403310042" class="popup-button">Join Now For $99.99</a>
-    <h1>OR Buy an individual AP guide</h1><p>for one of <span id="slot-count">62</span> advantage play slot machines for $29.99 right now.</p>
-    <a href="/apguides.html" class="popup-button">Buy Now $29.99</a>
+    <h1>We're still growing!</h1><p> Right now our AP Slot tour is only available at The Bellagio. But fear not! 
+        Most Vegas strip casinos offer the same selection of slots! So what you learn here, you can apply
+    at any casino you're playing at!</p>
+    
+    
+    <a href="https://bookwhen.com/slotmaps" class="popup-button">Book Your Tour Now!</a>
   </div>
 </div>
 
