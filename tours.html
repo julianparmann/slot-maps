@@ -141,8 +141,61 @@
             margin: 0; /* Remove default margin */
             text-align: center;
         }
- 
+         
+        .casino-hover-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 90%;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          color: white;
+          font-size: 1em;
+          padding: 20px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 10px;
+        }
+        
+                /* Show the hover content on card hover */
+        .casino-card:hover .casino-hover-content {
+          opacity: 1;
+        }
 
+        /* Button styles */
+        .book-now-button, .learn-more-button {
+          background-color: #f4a742;
+          color: white;
+          padding: 10px 15px;
+          margin-top: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1em;
+          text-decoration: none;
+        }
+        
+        .book-now-button:hover, .learn-more-button:hover {
+          background-color: #d68f35;
+        }
+        
+        /* Coming soon overlay */
+        .coming-soon::after {
+          content: "Coming Soon";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          color: white;
+          font-size: 1.5em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+        }
 
         /* Style for the first PNG image on top */
         .top-image {
@@ -730,8 +783,9 @@
     <a href="https://bookwhen.com/slotmaps" class="popup-button">Book Your Tour Now!</a>
   </div>
 </div>
-<script>
+    <script>
 window.onload = function() {
+  // Replace with your Google Sheets CSV URL
   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLhnkUDlBQ6ipaZbZB7ULSQ77edk74GnpC5qjfamrqqLDJAvz9dKeqH06O_jV8FSsPFhATyTtUORgR/pub?output=csv';
 
   function init() {
@@ -739,7 +793,7 @@ window.onload = function() {
       download: true,
       header: true,
       complete: function(results) {
-        var data = results.data;
+        var data = results.data; // This contains the parsed Google Sheets data
         showInfo(data);
       }
     });
@@ -747,80 +801,27 @@ window.onload = function() {
 
   function showInfo(data) {
     data.forEach(function(casino) {
-      // Set class and click handler based on status
-      var statusClass = casino.Status === 'Book Now' ? '' : 'coming-soon';
-      var clickHandler = casino.Status === 'Book Now' ? 'showPopup()' : `showComingSoonPopup('${casino.Casino}')`;
+      var isAvailable = casino.Status === "Available";
+      var hoverContent = isAvailable
+        ? `<button class="learn-more-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Learn More</button>`
+        : `<p>We're still growing, but don't worry! Most casinos offer the same selection of slots. Book our tour at the Bellagio while we grow our team.</p>
+           <button class="book-now-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Book Now at Bellagio</button>`;
 
-      // Build the casino card with appropriate status and click handling
       var casinoCard = `
-        <div class="casino-card ${statusClass}" onclick="${clickHandler}">
-          <div class="casino-image" style="background-image: url('${casino.Image}');">
+        <div class="casino-card">
+          <div class="casino-image ${isAvailable ? '' : 'coming-soon'}" style="background-image: url('${casino.Image}');">
             <div class="casino-name">${casino.Casino}</div>
-            ${casino.Status === 'Coming Soon' ? '<div class="coming-soon-overlay">Coming Soon</div>' : ''}
           </div>
-          <div class="casino-ratings">
-            <div class="rating-bar">
-              <span class="rating-label">Overall</span>
-              <div class="bar" style="width: ${casino.Overall}%; background-color: ${getBarColor(casino.Overall)};"></div>
-            </div>
-            <div class="rating-bar">
-              <span class="rating-label">Tourist Presence</span>
-              <div class="bar" style="width: ${casino.Tourist_Presence}%; background-color: ${getBarColor(casino.Tourist_Presence)};"></div>
-            </div>
-            <div class="rating-bar">
-              <span class="rating-label">Parking</span>
-              <div class="bar" style="width: ${casino.Parking}%; background-color: ${getBarColor(casino.Parking)};"></div>
-            </div>
-            <div class="rating-bar">
-              <span class="rating-label">Competition</span>
-              <div class="bar" style="width: ${casino.Competition}%; background-color: ${getBarColor(casino.Competition)};"></div>
-            </div>
-          </div>
+          <div class="casino-hover-content">${hoverContent}</div>
         </div>
       `;
+
       document.getElementById('casino-container').innerHTML += casinoCard;
     });
   }
 
-  function showPopup() {
-    document.getElementById('popup-overlay').style.display = 'block';
-    document.getElementById('popup-content').style.display = 'block';
-  }
-
-  // Function to show "Coming Soon" popup with a link to the Bellagio booking site
-  function showComingSoonPopup(casinoName) {
-    var popupContent = document.getElementById('popup-content');
-    popupContent.innerHTML = `
-      <span id="close-popup">&times;</span>
-      <h2>We're still growing!</h2>
-      <p>Our tour for <strong>${casinoName}</strong> is coming soon. But don’t worry, you’ll find the same top advantage slot machines in almost every casino!</p>
-      <p>Check out our tour at the Bellagio to learn more.</p>
-      <a href="https://bookwhen.com/slotmaps" target="_blank" class="popup-button">Book at the Bellagio</a>
-    `;
-    document.getElementById('popup-overlay').style.display = 'block';
-    document.getElementById('popup-content').style.display = 'block';
-    document.getElementById('close-popup').addEventListener('click', hidePopup);
-  }
-
-  function hidePopup() {
-    document.getElementById('popup-overlay').style.display = 'none';
-    document.getElementById('popup-content').style.display = 'none';
-  }
-
-  function getBarColor(value) {
-    if (value >= 80) return 'green';
-    if (value >= 50) return '#f4a742';
-    return 'red';
-  }
-
   init();
 };
-
-document.getElementById('popup-overlay').addEventListener('click', function(event) {
-  if (event.target === this) {
-    hidePopup();
-  }
-});
 </script>
 
 
