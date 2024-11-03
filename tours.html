@@ -785,7 +785,6 @@
 </div>
     <script>
 window.onload = function() {
-  // Replace with your Google Sheets CSV URL
   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLhnkUDlBQ6ipaZbZB7ULSQ77edk74GnpC5qjfamrqqLDJAvz9dKeqH06O_jV8FSsPFhATyTtUORgR/pub?output=csv';
 
   function init() {
@@ -801,7 +800,7 @@ window.onload = function() {
 
   function showInfo(data) {
     data.forEach(function(casino) {
-      var isAvailable = casino.Status === "Available";
+      var isAvailable = casino.Status === "Book Now" || casino.Status === "Available";
       var hoverContent = isAvailable
         ? `<button class="learn-more-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Learn More</button>`
         : `<p>We're still growing, but don't worry! Most casinos offer the same selection of slots. Book our tour at the Bellagio while we grow our team.</p>
@@ -822,6 +821,7 @@ window.onload = function() {
 
   init();
 };
+
 </script>
 
 
