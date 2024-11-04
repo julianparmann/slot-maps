@@ -40,7 +40,22 @@
             align-items: center; /* Centers items vertically within the flex container */
         }
 
+        .nav-links {
+            display: flex;
+            gap: 2px;
+            flex-wrap: wrap; /* Allows wrapping if needed */
+            justify-content: flex-end;
+            padding: 0;
+            
+        }
         
+        .nav-links a {
+            font-size: 0.9em;
+            padding: 5px;
+            font-weight: bold;
+            color: white; /* Sets the text color to white */
+            text-decoration: none; /* Removes underline */
+        }
         
         
         .nav-links a:hover {
@@ -641,20 +656,7 @@
             line-height: 1.2;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 2px;
-            flex-wrap: wrap; /* Allows wrapping if needed */
-            justify-content: flex-end;
-            padding: 0;
-            
-        }
         
-        .nav-links a {
-            font-size: 0.9em;
-            padding: 5px;
-            font-weight: bold;
-        }
 
     /* Content Section Images */
     .content-section img {
