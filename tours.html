@@ -143,19 +143,22 @@
         }
          
         .casino-hover-content {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 90%;
-          text-align: center;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          color: white;
-          font-size: 1em;
-          padding: 20px;
-          background-color: rgba(0, 0, 0, 0.7);
-          border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff; /* Brightened text color */
+            font-size: 1em;
+            background-color: rgba(0, 0, 0, 0.75); /* Darker overlay for readability */
+            padding: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
         
                 /* Show the hover content on card hover */
@@ -164,16 +167,17 @@
         }
 
         /* Button styles */
-        .book-now-button, .learn-more-button {
-          background-color: #f4a742;
-          color: white;
-          padding: 10px 15px;
-          margin-top: 10px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 1em;
-          text-decoration: none;
+        .book-now-button,
+        .learn-more-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #f4a742;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: none;
         }
         
         .book-now-button:hover, .learn-more-button:hover {
@@ -334,6 +338,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
             border-radius: 10px; /* Rounded corners */
             transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+            overflow: hidden;
         }
         
         /* Add hover effect to slightly scale up the card */
@@ -802,10 +807,10 @@ window.onload = function() {
     data.forEach(function(casino) {
       var isAvailable = casino.Status === "Book Now" || casino.Status === "Available";
       var hoverContent = isAvailable
-        ? `<button class="learn-more-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Learn More</button>`
-        : `<p>We're still growing, but don't worry! Most casinos offer the same selection of slots. Book our tour at the Bellagio while we grow our team.</p>
-           <button class="book-now-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Book Now at Bellagio</button>`;
-
+      ? `<p class="promotional-text">Unlock Advantage Play secrets, score free drinks, and get a $150 guide on 5 top machines—all in a 2-hour slot tour.</p>
+         <button class="learn-more-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Learn More</button>`
+      : `<p>We're still growing, but check out our available tours here:</p>
+         <button class="learn-more-button" onclick="window.location.href='https://bookwhen.com/slotmaps'">Learn More</button>`;
       var casinoCard = `
         <div class="casino-card">
           <div class="casino-image ${isAvailable ? '' : 'coming-soon'}" style="background-image: url('${casino.Image}');">
