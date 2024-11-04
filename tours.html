@@ -148,17 +148,21 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #ffffff; /* Brightened text color */
-            font-size: 1em;
-            background-color: rgba(0, 0, 0, 0.75); /* Darker overlay for readability */
-            padding: 15px;
+            color: #ffffff; /* Brighter white text */
+            font-size: 1.1em; /* Slightly larger font for readability */
+            background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
+            padding: 20px;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: calc(100% - 10px); /* Ensures the overlay fits within card */
+            height: calc(100% - 10px); /* Ensures the overlay fits within card */
+            margin: 5px; /* Adds spacing to avoid overflow */
+            border-radius: 8px; /* Match the card's rounded corners */
             opacity: 0;
+            overflow: hidden; /* Prevents text overflow */
             transition: opacity 0.3s ease-in-out;
+            box-sizing: border-box; /* Ensure padding is included in total width/height */
         }
         
                 /* Show the hover content on card hover */
