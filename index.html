@@ -45,12 +45,19 @@
         }
 
         
+       .nav-links {
+            display: flex;
+            gap: 2px;
+            flex-wrap: wrap; /* Allows wrapping if needed */
+            justify-content: flex-end;
+            padding: 0;
+            
+        }
+        
         .nav-links a {
-            color: white; /* White color for text */
-            text-decoration: none; /* Remove underline */
-            font-size: 1em; /* Adjust font size */
-            padding: 10px;
-            transition: color 0.3s ease; /* Smooth color transition on hover */
+            font-size: 0.9em;
+            padding: 5px;
+            font-weight: bold;
         }
         
         .nav-links a:hover {
@@ -557,18 +564,7 @@
             line-height: 1.2;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap; /* Allows wrapping if needed */
-            justify-content: flex-end;
-            padding: 0;
-        }
         
-        .nav-links a {
-            font-size: 0.9em;
-            padding: 5px;
-        }
 
     /* Content Section Images */
     .content-section img {
