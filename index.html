@@ -88,7 +88,7 @@
         padding: 0px 20px;
         width: 100%;
         color: white;
-        background-color: #28a745; 
+        background-color: #1e98f1; 
         top: 0; /* Aligns header at the very top */
         left: 0;
         z-index:2
@@ -398,25 +398,32 @@
         }
         
         .subscription-tier {
-            flex: 1 1 calc(50% - 20px);
+            flex: 1 1 500px; /* Flex-basis set to 500px max width */
+            max-width: 500px;
+            max-height: 500px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
             margin: 20px auto;
-            width: 300px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Spaces out content vertically */
         }
         
         .subscription-tier h3 {
             font-size: 1.5em;
             margin-bottom: 10px;
+            text-align: center;
         }
         
         .subscription-tier p {
             font-size: 1em;
             margin-bottom: 20px;
             color: #555;
+            text-align: center;
         }
         
         .pay-now-button {
@@ -547,11 +554,7 @@
             .headline p {
                 font-size: 1em;
             }
-        
-            /* Subscription Tier */
-            .subscription-tier {
-                flex: 1 1 100%;
-            }
+    
         
               .logo {
             width: 40px;
