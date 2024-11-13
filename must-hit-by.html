@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+
+    <link rel="icon" href="favicon2.ico" type="image/x-icon">
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlotMaps - Stop Guessing. Start Winning.</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTZC440PFH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VTZC440PFH');
+    </script>
+    
+    <style>
+      Pre get code fix css
+
+/* Basic reset for margins and paddings */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .logo-link, .welcome-message {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from the parent (white in this case) */
+            display: flex; /* Aligns content in the flex direction */
+            align-items: center; /* Centers items vertically within the flex container */
+        }
+
+        
+       .nav-links {
+            display: flex;
+            gap: 2px;
+            flex-wrap: wrap; /* Allows wrapping if needed */
+            justify-content: flex-end;
+            padding: 0;
+            margin-left: auto;
+            margin-right: 10px;
+            
+        }
+        
+        .nav-links a {
+            font-size: 0.9em;
+            padding: 5px;
+            font-weight: bold;
+            color: white; /* Sets the text color to white */
+            text-decoration: none; /* Removes underline */
+        }
+        
+        
+        .nav-links a:hover {
+            color: #f4a742; /* Highlight color on hover */
+        }
+
+
+        .floating-backdrop {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px 20px;
+        width: 100%;
+        color: white;
+        background-color: #1e98f1; 
+        top: 0; /* Aligns header at the very top */
+        left: 0;
+        z-index:2
+    }
+        
+        .logo {
+            max-width: 50px; /* Adjust logo size as needed */
+            margin-right: 10px;
+        }
+        
+        .welcome-message {
+            display: flex;
+            align-items: center; /* Aligns the main title and subtext vertically */
+            gap: 15px; /* Adds space between the main title and subtext */
+        }
+        
+        .welcome-message .subtext {
+            display: flex;
+            font-size: 0.7em; /* Adjusts the size of the subtext */
+            line-height: 0.8; /* Space between lines */
+            text-align: left;
+        }
+
+
+        /* Fullscreen video background */
+        .video-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+     
+        /* Style for the Casino Ratings title */
+        .casino-ratings-title {
+            display: flex;
+            justify-content: center; /* Center the title horizontally */
+            margin: 20px 0; /* Add some vertical spacing */
+        }
+        
+        .casino-ratings-title h2 {
+            background-color: white; /* White background for the floating effect */
+            padding: 15px 30px; /* Padding inside the title box */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+            font-size: 2em;
+            color: #333; /* Dark text for contrast */
+            margin: 0; /* Remove default margin */
+            text-align: center;
+        }
+ 
+        .subscription-icon {
+            width: 48px; /* Small icon size */
+            height: auto;
+            vertical-align: middle; /* Aligns with text */
+            margin-right: 8px; /* Spacing between icon and text */
+            border-radius: 10px;
+        }
+
+
+        /* Style for the first PNG image on top */
+        .top-image {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            max-width: 95vw; /* Ensures the image doesn't exceed viewport width */
+            height: auto; /* Maintains aspect ratio */
+            max-height: 95vh; /* Limits the height to the viewport */
+            object-fit:contain;
+            z-index: 3;
+        
+        }
+        /* Style for casinos.png */
+        .casinos {
+            max-width: 300px;  /* Default width for desktop */
+            height: auto;      /* Maintain aspect ratio */
+            z-index: 1;        /* Ensure proper stacking */
+        }
+
+        /* Style for apguide.png */
+        .apguide {
+            max-width: 300px;  /* Default width for desktop */
+            height: auto;      /* Maintain aspect ratio */
+            z-index: 1;
+        }
+
+        /* Scroll down content */
+        .content-section {
+            display: flex;
+            align-items: flex-start; /* Align items at the top */
+            justify-content: flex-start; /* Align content to the left */
+            padding: 20px; /* Adjust padding to reduce spacing */
+            min-height: auto; /* Remove the full-screen height */
+            box-sizing: border-box;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            overflow: hidden;
+            flex-wrap: wrap;
+            height: auto;
+        }
+
+        .content-section .text {
+            padding: 0px;
+            max-width: 100%;
+            font-size: 1.2em;
+            box-sizing: border-box;
+        }
+    
+
+       
+}
+
+
+
+        /* Image and text layout (phone on right, text on left) */
+        .image-right {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        /* Subscribe button style */
+        .subscribe-button {
+            display: block;
+            width: 200px;
+            margin: 50px auto;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .subscribe-button:hover {
+            background-color: #218838;
+        }
+
+        /* Headline Section */
+        .headline {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #1a82d8; /* Light background to distinguish the section */
+        }
+
+        .headline h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: white; /* White color for headline text */
+        }
+
+        .headline p {
+            font-size: 1.1em;
+            color: white; /* Slightly lighter color for subtitle text */
+        }
+
+        #casino-container {
+            display: flex;
+            flex-wrap: wrap; /* Ensures tiles wrap to the next line when needed */
+            justify-content: space-around; /* Distributes space between the cards */
+            padding: 20px;
+        }
+        
+        /* Style for the casino cards */
+        .casino-card {
+            width: 300px; /* Fixed width for each card */
+            height: auto;
+            margin: 10px;
+            position: relative; /* Allows absolute positioning of inner elements */
+            background-color: #fff; /* Adds background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+            border-radius: 10px; /* Rounded corners */
+            transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+        }
+        
+        /* Add hover effect to slightly scale up the card */
+        .casino-card:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Style for the casino image */
+        .casino-image {
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
+            border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+            position: relative; /* To ensure text and bars appear on top of the image */
+        }
+        
+        /* Style for the casino name text overlay */
+        .casino-name {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white; /* Makes the text white */
+            font-weight: bold; /* Makes the text bold */
+            font-size: 1.5em; /* Adjust the size as needed */
+            z-index: 2; /* Ensures the text is above the image */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for readability */
+        }
+        
+        /* Style for the rating bars to overlay the image */
+        .casino-ratings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            padding: 5px; /* Reduced padding */
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+            z-index: 3; /* Ensure bars appear on top of the image */
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
+            border-radius: 15px; /* Rounded corners for the entire container */
+            overflow: hidden; /* Ensures the contents are within the rounded area */
+        }
+
+        .rating-label {
+            padding-left: 10px; /* Add some padding to the left */
+            display: inline-block; /* Ensure proper spacing inside the box */
+            
+        }
+        
+        /* Show the bars when hovering over the casino tile */
+        .casino-card:hover .casino-ratings {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Style for rating bars */
+        .rating-bar {
+            background-color: #f1f1f1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 3px; /* Reduced margin */
+        }
+        
+        .bar {
+            height: 10px; /* Reduced height */
+            border-radius: 15px;
+            background-color: #ccc;
+        }
+/* Reviews Section */
+        .reviews-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #f9f9f9; /* Light background color to distinguish the section */
+            border-top: 1px solid #ddd; /* Separate it visually from the pricing options */
+        }
+        
+        .reviews-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .review {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stars {
+            color: #ffc107; /* Gold star color */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .reviewer {
+            font-weight: bold;
+            color: #333;
+        }
+        .subscription-container {
+            display: flex;
+            flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+            justify-content: space-around; /* Creates space between the two options */
+            padding: 20px 0;
+        }
+           
+        .subscription-options {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .subscription-tier {
+            flex: 1 1 500px; /* Flex-basis set to 500px max width */
+            max-width: 500px;
+            max-height: 500px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Spaces out content vertically */
+        }
+        
+        .subscription-tier h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subscription-tier p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: center;
+        }
+        
+        .pay-now-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1e98f1;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .pay-now-button:hover {
+            background-color: #1a82d8;
+        }
+        /* Popup Overlay */
+        #popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+          z-index: 1000; /* Ensure it appears above everything */
+          display: none; /* Hidden by default */
+        }
+        
+        /* Popup Content */
+        #popup-content {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); /* Center the popup */
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          width: 300px; /* Adjust width for layout */
+          z-index: 1001; /* Ensure it appears above the overlay */
+          text-align: center;
+        }
+        
+        /* Close Button */
+        #close-popup {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          font-size: 1.5em;
+        }
+        
+        /* Button inside popup */
+        .popup-button {
+          display: inline-block;
+          margin: 10px;
+          padding: 10px 20px;
+          background-color: #007BFF;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        
+        .popup-button:hover {
+          background-color: #0056b3;
+        }
+
+        /* Style for the floating text box */
+        .floating-text-box {
+          position: absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -20%);
+          background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+          color: white;
+          padding: 20px;
+          border-radius: 10px;
+          width: 25%; /* Adjust width based on preference */
+          max-width: 800px;
+          z-index: 2; /* Ensure it appears above the video and image */
+          text-align: center;
+          font-size: 1.2em;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .floating-text-box h2 {
+          margin-top: 0;
+          font-size: 1.5em;
+        }
+        
+        @media (max-width: 768px) {
+          .floating-text-box {
+            width: 90%;
+            font-size: 1em;
+          }
+
+    /* Content Section Text */
+            .content-section .text {
+                font-size: 1em;
+                padding: 10px;
+            }
+        
+            /* Video Container */
+            .video-container {
+                height: auto;
+                min-height: 50vh;
+            }
+        
+            .video-container video {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        
+            
+        
+            /* Headline Section */
+            .headline {
+                text-align: center;
+                padding: 5px 10px;
+                background-color: #1a82d8;
+                z-index: 1;
+            }
+        
+            .headline h1 {
+                font-size: 1.8em;
+            }
+        
+            .headline p {
+                font-size: 1em;
+            }
+    
+        
+              .logo {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+        
+        .welcome-message {
+            font-size: 1.2em;
+            text-align: left;
+            display: flex;
+            flex-direction: column; /* Stacks main message and subtext */
+        }
+        
+        .welcome-message .subtext {
+            font-size: 0.8em;
+            line-height: 1.2;
+        }
+        
+        
+
+    /* Content Section Images */
+    .content-section img {
+        max-width: 90%;
+        height: auto;
+    }
+        }
+
+
+
+
+    </style>
+</head>
+<body>  <!-- Header Section -->
+    <header class="header">
+    <a href="index.html" class="logo-link"><img src="/logo.png" alt="SlotMaps Logo" class="logo"></a>
+    <a href="index.html" class="welcome-message">
+        <b>SlotMaps</b>
+        </a>
+    
+    <div class="nav-links">
+        <a href="index.html">🎰 Home</a>
+        <a href="community.html">🤫Community</a>
+        <a href="tours.html">🚶Slot Tours</a>
+        
+    </div>
+</header>
+
+    <!-- Video Container with Overlay Image -->
+    <div class="video-container">
+        <!-- Video Background -->
+        <video autoplay muted loop>
+            <source src="megabucks.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay Image on Video -->
+        <img src="mhb.png" alt="Top Image" class="top-image">
+    </div>
+
+<!-- Scroll Down Section with Phone Image on Right and Text on Left -->
+<div class="content-section">
+    
+    <div class="text">
+        <h2>What is a Must Hit By Progressive?</h2>
+<p>Not all slots are the same. And Must Hit By Progressives are one way to level up your slot play. These jackpots work differently than typical slot games. They’re designed to pay out before reaching a specific dollar amount. That means you can actually know when a machine is "due."
+
+Here’s how it works: MHB progressives have a jackpot that climbs every time the machine is played. Once that jackpot meter nears the “must hit” amount, you’re in the profit zone, and it’s the best time to play. By understanding key factors like the meter speed, base game payout, and the average jackpot hit point, you can maximize your wins.
+
+Drop your email, and we’ll send you the complete guide to Must Hit By slots, giving you all the tools to know when to take a shot—and when to pass.</p>
+
+    </div>
+</div>
+ 
+
+    <iframe src="https://embeds.beehiiv.com/a49002d0-4a28-4674-989f-9d17f16ceb1c" data-test-id="beehiiv-embed" width="100%" height="320" frameborder="0" scrolling="no" style="border-radius: 4px; border: 2px solid #e5e7eb; margin: 0; background-color: transparent;"></iframe>
+
+<!-- Script to load data from Google Sheets using Papa Parse and handle popups -->
+<script>
+  window.onload = function() {
+    // Replace with your Google Sheets CSV URL
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPpsEQ68c-ZW68viirOrLFjgJFuJzOwSE1cohiBTH1J_WVhfsEGfGcnl8hn2ROfMd9RDZREJqPW0ET/pub?output=csv';
+
+    function init() {
+      Papa.parse(publicSpreadsheetUrl, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          var data = results.data; // This contains the parsed Google Sheets data
+          showInfo(data);
+        }
+      });
+    }
+
+    function showInfo(data) {
+      data.forEach(function(casino) {
+        var casinoCard = `
+          <div class="casino-card" onclick="showPopup()">
+            <div class="casino-image" style="background-image: url('${casino.Image}');">
+              <div class="casino-name">${casino.Casino}</div>
+            </div>
+            <div class="casino-ratings">
+              <div class="rating-bar">
+                <span class="rating-label">Overall</span>
+                <div class="bar" style="width: ${casino.Overall}%; background-color: ${getBarColor(casino.Overall)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Tourist Presence</span>
+                <div class="bar" style="width: ${casino.Tourist_Presence}%; background-color: ${getBarColor(casino.Tourist_Presence)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Parking</span>
+                <div class="bar" style="width: ${casino.Parking}%; background-color: ${getBarColor(casino.Parking)};"></div>
+              </div>
+              <div class="rating-bar">
+                <span class="rating-label">Competition</span>
+                <div class="bar" style="width: ${casino.Competition}%; background-color: ${getBarColor(casino.Competition)};"></div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.getElementById('casino-container').innerHTML += casinoCard;
+      });
+
+      // Attach popup event listeners after cards are rendered
+      document.querySelectorAll('.casino-card').forEach(card => {
+        card.addEventListener('click', showPopup);
+      });
+    }
+
+    // Helper function to determine bar color based on value
+    function getBarColor(value) {
+      if (value >= 80) return 'green';
+      if (value >= 50) return '#f4a742'; // Orange-yellow color
+      return 'red';
+    }
+
+    init();
+  }
+
+  // Function to show the popup
+  function showPopup() {
+    document.getElementById('popup-overlay').style.display = 'block';
+    document.getElementById('popup-content').style.display = 'block';
+  }
+
+  // Function to hide the popup
+  function hidePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+    document.getElementById('popup-content').style.display = 'none';
+  }
+
+  // Event listener for the close button
+  document.getElementById('close-popup').addEventListener('click', hidePopup);
+
+  // Event listener for the overlay click (close on click outside content)
+  document.getElementById('popup-overlay').addEventListener('click', function(event) {
+    if (event.target === this) {
+      hidePopup();
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
