@@ -574,7 +574,21 @@
             line-height: 1.2;
         }
         
+                /* Container to center the image and control max width */
+        .responsive-image-container {
+            width: 100%; /* Full width of viewport */
+            display: flex;
+            justify-content: center;
+            padding: 10px 0; /* Optional padding for spacing */
+        }
         
+        /* Responsive image */
+        .responsive-image {
+            width: 100%; /* Makes image responsive to viewport width */
+            max-width: 800px; /* Optional max width to avoid getting too large on large screens */
+            height: auto; /* Maintains aspect ratio */
+        }
+
 
     /* Content Section Images */
     .content-section img {
@@ -582,6 +596,7 @@
         height: auto;
     }
         }
+    
 
 
 
@@ -602,8 +617,10 @@
         
     </div>
 </header>
+<div class="responsive-image-container">
+    <img src="mhb.png" alt="Must Hit By Progressive" class="responsive-image">
+</div>
 
-        <img src="mhb.png">
    
 
 <!-- Scroll Down Section with Phone Image on Right and Text on Left -->
